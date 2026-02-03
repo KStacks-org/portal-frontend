@@ -5,12 +5,14 @@ import {
   Route as RouteIcon,
   Shield,
   Waves,
-  Sparkles,
+  SaudiRiyal
 } from 'lucide-react'
 
 import { ArrowRight, Layers, Code2, Users, Rocket, Database, Globe, ChevronRight, Search, Calendar, BookOpen, GraduationCap, ExternalLink } from 'lucide-react';
 import LightRays from '../components/LightRays';
+import { use, useEffect } from 'react';
 
+import {Sparkles} from '../components/animate-ui/icons/sparkles';
 export const Route = createFileRoute('/')({ component: App })
 
 function App() {
@@ -52,21 +54,24 @@ function App() {
         'Built from the ground up for modern web applications. Deploy anywhere JavaScript runs.',
     },
   ]
+  const isDark =
+  typeof document !== "undefined" &&
+  document.documentElement.classList.contains("dark")
 
   return (
     <div className="min-h-screen bg-background overflow-hidden">
       {/* Hero Section - Simplified */}
-      <section className="relative py-20 md:py-24">
-        {/* Dramatic gradient background */}
-        <div className="absolute inset-0">
+      <section className="relative py-32 md:py-24">
+        {/* Light Rays from react bits background, hidden in white mode */}
+        <div className="absolute inset-0 dark:block hidden">
           <LightRays
             raysOrigin="top-center"
-            raysColor="#48ed0c"
+            raysColor="#00a63e"
             raysSpeed={1}
-            lightSpread={1.1}
+            lightSpread={1.2}
             rayLength={3}
             followMouse={true}
-            mouseInfluence={0.1}
+            mouseInfluence={0.05}
             noiseAmount={0}
             distortion={0}
             className="custom-rays"
@@ -80,14 +85,6 @@ function App() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,255,136,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,255,136,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
 
         <div className="relative max-w-7xl mx-auto px-6 z-10">
-          {/* Logo/Brand with glow */}
-          <div className="mb-12 text-center">
-            <div className="inline-flex items-center gap-3 px-6 py-3 bg-card/80 backdrop-blur-xl border border-primary/30 rounded-full shadow-lg shadow-primary/20">
-              <Layers className="w-6 h-6 text-primary drop-shadow-[0_0_8px_rgba(0,255,136,0.5)]" />
-              <span className="text-lg font-semibold tracking-wide">KAUStack</span>
-              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            </div>
-          </div>
 
           {/* Main headline with glow effect */}
           <div className="text-center max-w-5xl mx-auto mb-8">
@@ -128,7 +125,7 @@ function App() {
                 desc: 'Find courses, check availability, and view instructor ratings',
                 icon: Search,
                 status: 'Live',
-                link: '#',
+                link: 'https://kauindex.com',
                 color: 'primary',
               },
               {
@@ -136,8 +133,8 @@ function App() {
                 tagline: 'Schedule Builder',
                 desc: 'Plan your semester with visual conflict detection',
                 icon: Calendar,
-                status: 'Beta',
-                link: '#',
+                status: 'Live',
+                link: 'https://kauindex.com/planner',
                 color: 'accent',
               },
               {
@@ -155,8 +152,6 @@ function App() {
                 href={service.link}
                 className="group relative block p-8 bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-xl border-2 border-primary/20 rounded-3xl hover:border-primary/50 hover:scale-[1.02] transition-all duration-300 shadow-xl hover:shadow-primary/20"
               >
-                {/* Glow effect */}
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-3xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-300" />
 
                 <div className="relative">
                   {/* Status badge */}
@@ -169,7 +164,7 @@ function App() {
                   </div>
 
                   {/* Icon */}
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-primary/20">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg ">
                     <service.icon className="w-8 h-8 text-primary drop-shadow-[0_0_8px_rgba(0,255,136,0.5)]" />
                   </div>
 
@@ -198,7 +193,7 @@ function App() {
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
-              <Sparkles className="w-8 h-8 text-accent drop-shadow-[0_0_12px_rgba(10,77,46,0.5)]" />
+              <Zap className="w-8 h-8 text-accent drop-shadow-[0_0_12px_rgba(10,77,46,0.5)]" />
               <h2 className="text-3xl md:text-4xl font-bold">Powered by KAUStack</h2>
             </div>
             <p className="text-lg text-muted-foreground">
@@ -285,140 +280,124 @@ function App() {
         </div>
       </section>
 
-      {/* Problem Section - Dramatic */}
-      <section className="relative py-32 border-t border-primary/10">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-destructive/5 to-transparent" />
-
-        <div className="relative max-w-6xl mx-auto px-6">
-          <div className="text-center max-w-4xl mx-auto mb-20">
-            <div className="inline-flex items-center gap-2 px-5 py-2 bg-destructive/20 border border-destructive/40 rounded-full mb-8 shadow-lg shadow-destructive/20">
-              <div className="w-2 h-2 rounded-full bg-destructive animate-pulse" />
-              <span className="text-sm font-semibold text-destructive-foreground uppercase tracking-wide">The Current Reality</span>
-            </div>
-
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              Stop Wasting Your
-              <br />
-              <span className="text-destructive">Valuable Time</span>
-            </h2>
-
-            <p className="text-xl text-muted-foreground">
-              Every day, thousands of students struggle with fragmented, outdated systems.
-              <br />
-              <span className="text-foreground font-medium">It doesn't have to be this way.</span>
-            </p>
-          </div>
-
-          {/* Problem cards with dramatic styling */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Scattered Services',
-                desc: 'Multiple logins. Different interfaces. Zero consistency. Hours wasted navigating between disconnected systems.',
-                impact: '10+ hours/week lost'
-              },
-              {
-                title: 'Poor Experience',
-                desc: 'Outdated design. Confusing navigation. Mobile unfriendly. The tools that should help you are holding you back.',
-                impact: 'Constant frustration'
-              },
-              {
-                title: 'No Integration',
-                desc: 'Manual data entry. Duplicate information. No sync. Your academic life deserves better than copy-paste.',
-                impact: 'Endless redundancy'
-              },
-            ].map((problem, index) => (
-              <div key={index} className="group relative p-8 bg-card/80 backdrop-blur-xl border border-border rounded-2xl hover:border-destructive/40 transition-all duration-300">
-                <div className="absolute inset-0 bg-gradient-to-br from-destructive/0 to-destructive/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
-                <div className="relative">
-                  <div className="text-4xl mb-4">❌</div>
-                  <h3 className="text-2xl font-semibold mb-3">{problem.title}</h3>
-                  <p className="text-muted-foreground mb-4">{problem.desc}</p>
-                  <div className="inline-block px-3 py-1 bg-destructive/20 border border-destructive/30 rounded-full">
-                    <span className="text-xs font-semibold text-destructive-foreground">{problem.impact}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+     
       {/* Solution Section - Mind Blowing */}
       <section className="relative py-32 border-t border-primary/10">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,255,136,0.1),transparent_50%)]" />
-
-        <div className="relative max-w-6xl mx-auto px-6">
+        
+        <div className="relative max-w-7xl mx-auto px-6">
           <div className="text-center max-w-4xl mx-auto mb-20">
             <div className="inline-flex items-center gap-2 px-5 py-2 bg-primary/20 border border-primary/40 rounded-full mb-8 shadow-lg shadow-primary/30">
               <Sparkles className="w-4 h-4 text-primary" />
               <span className="text-sm font-semibold uppercase tracking-wide">The KAUStack Solution</span>
             </div>
-
+            
             <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              One Ecosystem.
-              <br />
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Infinite Power.
+              The only
+              <span className="from-primary to-accent bg-clip-text text-transparent bg-gradient-to-r mx-2">
+                Stack
               </span>
+              you need
             </h2>
-
-            <p className="text-xl text-muted-foreground mb-8">
-              A unified platform that brings all your student services together.
-              <br />
-              <span className="text-foreground font-medium">Built with cutting-edge technology. Designed for you.</span>
+            
+            <p className="text-xl text-muted-foreground">
+              A unified platform built with cutting-edge technology. Say goodbye to fragmentation.
             </p>
           </div>
-
-          {/* Dramatic layered stack */}
-          <div className="relative max-w-5xl mx-auto mb-16">
-            <div className="space-y-6">
-              {[
-                { label: 'Single Sign-On Authentication', desc: 'One login for everything', color: 'primary' },
-                { label: 'Unified Design Language', desc: 'Consistent, beautiful interface', color: 'accent' },
-                { label: 'Real-Time Data Sync', desc: 'Always up-to-date, everywhere', color: 'primary' },
-                { label: 'Cloud-Powered Infrastructure', desc: 'Fast, reliable, scalable', color: 'accent' },
-              ].map((layer, index) => (
-                <div
-                  key={index}
-                  className="group relative p-8 bg-gradient-to-r from-card/90 to-card/70 backdrop-blur-xl border border-primary/20 rounded-2xl hover:border-primary/50 hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-primary/20"
-                  style={{ marginLeft: `${index * 30}px`, animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
-                  <div className="relative flex items-center justify-between">
-                    <div className="flex items-center gap-4">
-                      <div className={`w-4 h-4 rounded-full bg-${layer.color} shadow-[0_0_20px_rgba(0,255,136,0.5)]`} style={{ backgroundColor: `var(--${layer.color})` }} />
-                      <div>
-                        <h3 className="text-xl font-semibold mb-1">{layer.label}</h3>
-                        <p className="text-sm text-muted-foreground">{layer.desc}</p>
-                      </div>
-                    </div>
-                    <ChevronRight className="w-6 h-6 text-primary/50 group-hover:text-primary group-hover:translate-x-2 transition-all" />
+          
+          {/* Feature List - Clean & Minimal */}
+          <div className="max-w-5xl mx-auto mb-20 space-y-8">
+            {[
+              {
+                icon: Zap,
+                title: 'Lightning Fast',
+                desc: 'Instant access to all services. No more waiting, no more loading.',
+                metric: '10x Faster'
+              },
+              {
+                icon: Layers,
+                title: 'Unified Design',
+                desc: 'Consistent, beautiful interface across all services and devices.',
+                metric: 'One Experience'
+              },
+              {
+                icon: Database,
+                title: 'Smart Sync',
+                desc: 'Real-time data synchronization. Always up-to-date, everywhere.',
+                metric: 'Live Updates'
+              },
+              {
+                icon: Users,
+                title: 'Student-First',
+                desc: 'Built by students who understand your needs and challenges.',
+                metric: '1000+ Users'
+              },
+            ].map((feature, index) => (
+              <div
+                key={index}
+                className="group flex items-start gap-8 p-8 border-l-2 border-primary/20 hover:border-primary/60 transition-all duration-300 hover:pl-10"
+              >
+                {/* Icon */}
+                <div className="shrink-0">
+                  <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-all">
+                    <feature.icon className="w-8 h-8 text-primary drop-shadow-[0_0_12px_rgba(0,255,136,0.5)]" />
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Stats showcase */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {[
-              { value: '10x', label: 'Faster Access' },
-              { value: '100%', label: 'Integrated' },
-              { value: '24/7', label: 'Available' },
-            ].map((stat, index) => (
-              <div key={index} className="text-center p-8 bg-card/50 backdrop-blur-xl border border-primary/20 rounded-2xl">
-                <div className="text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2">
-                  {stat.value}
+                
+                {/* Content */}
+                <div className="flex-1 pt-2">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-2xl font-bold">{feature.title}</h3>
+                    <div className="flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-lg">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(0,255,136,0.6)]" />
+                      <span className="text-sm font-semibold text-primary whitespace-nowrap">{feature.metric}</span>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground text-lg leading-relaxed">{feature.desc}</p>
                 </div>
-                <div className="text-muted-foreground">{stat.label}</div>
               </div>
             ))}
           </div>
+          
+          {/* Central Value Proposition, will be used and added for the login sign in page */}
+          <div className="max-w-5xl mx-auto">
+            <div className="relative p-12 bg-gradient-to-br from-card/90 to-card/60 backdrop-blur-xl border-2 border-primary/30 rounded-3xl shadow-2xl shadow-primary/10">
+              {/* Decorative elements */}
+              <div className="absolute -top-6 -left-6 w-32 h-32 bg-primary/20 rounded-full blur-3xl" />
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/20 rounded-full blur-3xl" />
+              
+              <div className="relative">
+                <div className="text-center mb-8">
+                  <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary/30 to-accent/30 rounded-2xl mb-6 shadow-lg shadow-primary/20">
+                    <Layers className="w-10 h-10 text-primary drop-shadow-[0_0_16px_rgba(0,255,136,0.6)]" />
+                  </div>
+                  <h3 className="text-3xl font-bold mb-4">Single Sign-On for Everything</h3>
+                  <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                    One account. One password. Instant access to every service in the ecosystem.
+                  </p>
+                </div>
+                
+                {/* Visual representation */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {[
+                    { name: 'KAUIndex', icon: Search },
+                    { name: 'KAUPlanner', icon: Calendar },
+                    { name: 'KAUGroups', icon: Users },
+                    { name: 'More...', icon: Sparkles },
+                  ].map((service, index) => (
+                    <div
+                      key={index}
+                      className="p-4 bg-card/80 border border-primary/20 rounded-xl text-center hover:border-primary/40 transition-all"
+                    >
+                      <service.icon className="w-6 h-6 text-primary mx-auto mb-2" />
+                      <p className="text-sm font-medium">{service.name}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-
       {/* For Developers Section - Epic */}
       <section className="relative py-32 border-t border-primary/10 bg-gradient-to-b from-transparent via-accent/5 to-transparent">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,255,136,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,255,136,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
@@ -473,7 +452,7 @@ function App() {
 
         <div className="relative max-w-6xl mx-auto px-6 text-center">
           <div className="max-w-4xl mx-auto">
-            <Sparkles className="w-16 h-16 text-primary mx-auto mb-8 drop-shadow-[0_0_20px_rgba(0,255,136,0.5)]" />
+            <Sparkles animateOnView animateOnViewOnce={false} animation="path-loop" animateOnViewMargin="0px" className="w-16 h-16 text-primary mx-auto mb-8 drop-shadow-[0_0_20px_rgba(0,255,136,0.5)]" />
 
             <h2 className="text-5xl md:text-6xl font-bold mb-6">
               Just the Beginning

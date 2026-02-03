@@ -18,6 +18,7 @@ import appCss from '../styles.css?url'
 import type { QueryClient } from '@tanstack/react-query'
 
 import { ThemeProvider } from "../components/theme-provider"
+import { BootGate } from '@/components/BootGate.tsx'
 
 
 interface MyRouterContext {
@@ -43,7 +44,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'TanStack Start Starter',
+        title: 'KAUStack Portal',
       },
     ],
     links: [
@@ -51,6 +52,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         rel: 'stylesheet',
         href: appCss,
       },
+      { rel: 'icon', type: 'image/svg+xml', href: '../src/assets/kaustack_logo.svg' },
     ],
   }),
 
@@ -66,7 +68,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       </head>
       <body>
           <Header />
-          {children}
+          <BootGate>{children}</BootGate>
           <TanStackDevtools
             config={{
               position: 'bottom-right',

@@ -14,11 +14,11 @@ export function Header() {
 				className="flex items-center gap-3 cursor-pointer select-none group"
 				onClick={() => navigate({ to: "/" })}
 			>
-				{/*<img
-					src="/favicon.svg"
+				{<img
+					src="/src/assets/kaustack_logo.svg"
 					alt="KAU Logo"
 					className="h-10 w-10 object-contain transition-transform group-hover:scale-105"
-				/>*/}
+				/>}
 				<div className="font-bold text-2xl tracking-tight text-foreground">
 					KAU<span className="text-green-600 dark:text-green-400">Stack</span>
 				</div>
