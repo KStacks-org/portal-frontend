@@ -5,14 +5,25 @@ import {
   Route as RouteIcon,
   Shield,
   Waves,
-  SaudiRiyal
+  SaudiRiyal,
+  Download,
+  GitBranch,
+  RefreshCw,
+  KeyRound,
+  Cloudy,
+  TrendingUp,
+  Megaphone,
+  Sigma,
+  Calculator,
+  FileQuestion,
+  Plus
 } from 'lucide-react'
 
 import { ArrowRight, Layers, Code2, Users, Rocket, Database, Globe, ChevronRight, Search, Calendar, BookOpen, GraduationCap, ExternalLink } from 'lucide-react';
 import LightRays from '../components/LightRays';
 import { use, useEffect } from 'react';
 
-import {Sparkles} from '../components/animate-ui/icons/sparkles';
+import { Sparkles } from '../components/animate-ui/icons/sparkles';
 export const Route = createFileRoute('/')({ component: App })
 
 function App() {
@@ -55,8 +66,8 @@ function App() {
     },
   ]
   const isDark =
-  typeof document !== "undefined" &&
-  document.documentElement.classList.contains("dark")
+    typeof document !== "undefined" &&
+    document.documentElement.classList.contains("dark")
 
   return (
     <div className="min-h-screen bg-background overflow-hidden">
@@ -79,7 +90,7 @@ function App() {
             fadeDistance={1}
             saturation={1.1}
           />
-          </div>
+        </div>
 
         {/* Grid pattern overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,255,136,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,255,136,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
@@ -150,7 +161,7 @@ function App() {
               <a
                 key={index}
                 href={service.link}
-                className="group relative block p-8 bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-xl border-2 border-primary/20 rounded-3xl hover:border-primary/50 hover:scale-[1.02] transition-all duration-300 shadow-xl hover:shadow-primary/20"
+                className="group relative block p-8 bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-xl border-2 border-primary/20 rounded-sm hover:border-primary/50 hover:scale-[1.02] transition-all duration-300 shadow-xl hover:shadow-primary/20"
               >
 
                 <div className="relative">
@@ -164,16 +175,15 @@ function App() {
                   </div>
 
                   {/* Icon */}
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg ">
+                  <div className="w-16 h-16 mx-auto bg-gradient-to-br from-primary/20 to-accent/20 rounded-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg ">
                     <service.icon className="w-8 h-8 text-primary drop-shadow-[0_0_8px_rgba(0,255,136,0.5)]" />
                   </div>
 
-                  <div className="mb-6">
-                    <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">{service.name}</h3>
-                    <p className="text-sm text-primary font-semibold mb-3">{service.tagline}</p>
-                    <p className="text-muted-foreground">{service.desc}</p>
+                  <div className="mb-6 ">
+                    <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors text-center">{service.name}</h3>
+                    <p className="text-sm text-primary font-semibold mb-3 text-center">{service.tagline}</p>
+                    <p className="text-muted-foreground text-center">{service.desc}</p>
                   </div>
-
                   {/* Access button */}
                   <div className="flex items-center justify-between pt-4 border-t border-primary/10">
                     <span className="text-sm font-semibold text-primary">
@@ -205,18 +215,18 @@ function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                name: 'KAU Resources',
-                desc: 'Shared study materials and notes',
-                author: 'CS Students Association',
-                icon: BookOpen,
-                link: '#',
+                name: 'Schedly',
+                desc: 'Generate all possible class schedules and pick the optimal one, using the raw power of algorithms.',
+                author: 'Yasir Alghamdi',
+                icon: Sigma,
+                link: 'http://schedly.y-tools.xyz/',
               },
               {
-                name: 'Campus Navigator',
-                desc: 'Interactive campus map & directions',
-                author: 'Engineering Club',
-                icon: Globe,
-                link: '#',
+                name: 'GPA Calculator',
+                desc: 'Calculate your GPA and FCIT acceptance grades.',
+                author: 'Yasir Alghamdi',
+                icon: Calculator,
+                link: 'https://fcit-calc.y-tools.xyz/',
               },
               {
                 name: 'Grade Calculator',
@@ -226,17 +236,17 @@ function App() {
                 link: '#',
               },
               {
-                name: 'Library Finder',
-                desc: 'Find study spaces and book rooms',
-                author: 'Student Council',
-                icon: Database,
+                name: 'Your Project Here',
+                desc: 'The stack is incomplete without you. Build the next essential tool and claim this spot.',
+                author: '???',
+                icon: Plus,
                 link: '#',
               },
             ].map((project, index) => (
               <a
                 key={index}
                 href={project.link}
-                className="group relative block p-6 bg-card/60 backdrop-blur-xl border border-border rounded-2xl hover:border-accent/40 hover:scale-[1.02] transition-all duration-300"
+                className={`group relative block p-6 bg-card/60 backdrop-blur-xl border border-border rounded-2xl hover:border-accent/40 hover:scale-[1.02] transition-all duration-300 ${project.name === 'Your Project Here' ? 'border-dashed border-2 opacity-80 hover:opacity-100' : 'border-solid'}`}
               >
                 <div className="relative">
                   {/* Icon */}
@@ -252,7 +262,7 @@ function App() {
 
                   {/* Author */}
                   <div className="pt-3 border-t border-border/50">
-                    <p className="text-xs text-muted-foreground">by {project.author}</p>
+                    <p className="text-sm2 text-muted-foreground">by {project.author}</p>
                   </div>
 
                   {/* Sponsored badge */}
@@ -265,14 +275,21 @@ function App() {
           </div>
 
           {/* Call to action for developers */}
-          <div className="mt-12 p-8 bg-gradient-to-r from-accent/10 to-primary/10 backdrop-blur-xl border border-accent/20 rounded-2xl">
+          <div className="mt-12 p-8 bg-gradient-to-r from-accent/10 to-primary/10 backdrop-blur-xl border border-accent/20 rounded-sm">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div>
                 <h3 className="text-2xl font-bold mb-2">Want to build with us?</h3>
                 <p className="text-muted-foreground">Get your project featured here with free hosting, infrastructure, and support</p>
               </div>
-              <button className="px-8 py-4 bg-accent text-accent-foreground rounded-xl hover:scale-105 transition-all duration-300 flex items-center gap-3 shadow-lg whitespace-nowrap">
-                <span className="font-semibold">Submit Your Project</span>
+              <button
+                onClick={() => {
+                  const el = document.getElementById('developers');
+                  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
+                aria-label="Scroll to Developers section"
+                className="px-8 py-4 bg-accent text-accent-foreground rounded-sm hover:scale-105 transition-all duration-300 flex items-center gap-3 shadow-lg whitespace-nowrap cursor-pointer"
+              >
+                <span className="font-semibold">Read More! </span>
                 <Rocket className="w-5 h-5" />
               </button>
             </div>
@@ -280,49 +297,49 @@ function App() {
         </div>
       </section>
 
-     
+
       {/* Solution Section - Mind Blowing */}
       <section className="relative py-32 border-t border-primary/10">
-        
+
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="text-center max-w-4xl mx-auto mb-20">
             <div className="inline-flex items-center gap-2 px-5 py-2 bg-primary/20 border border-primary/40 rounded-full mb-8 shadow-lg shadow-primary/30">
               <Sparkles className="w-4 h-4 text-primary" />
               <span className="text-sm font-semibold uppercase tracking-wide">The KAUStack Solution</span>
             </div>
-            
+
             <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
               The only
-              <span className="from-primary to-accent bg-clip-text text-transparent bg-gradient-to-r mx-2">
+              <span className="from-primary to-accent bg-clip-text text-transparent bg-gradient-to-r mx-3">
                 Stack
               </span>
               you need
             </h2>
-            
+
             <p className="text-xl text-muted-foreground">
               A unified platform built with cutting-edge technology. Say goodbye to fragmentation.
             </p>
           </div>
-          
+
           {/* Feature List - Clean & Minimal */}
           <div className="max-w-5xl mx-auto mb-20 space-y-8">
             {[
               {
-                icon: Zap,
-                title: 'Lightning Fast',
-                desc: 'Instant access to all services. No more waiting, no more loading.',
-                metric: '10x Faster'
+                icon: GitBranch,
+                title: 'Open Source First',
+                desc: 'Transparent from the ground up. Built by students, for students. Read the code, contribute, and build with us.',
+                metric: 'For The Greater Good'
               },
               {
-                icon: Layers,
-                title: 'Unified Design',
-                desc: 'Consistent, beautiful interface across all services and devices.',
-                metric: 'One Experience'
+                icon: SaudiRiyal,
+                title: 'Forever Free',
+                desc: 'Education support shouldn’t have a paywall. All services are free, forever.',
+                metric: 'You Can Never Beat Free'
               },
               {
-                icon: Database,
+                icon: RefreshCw,
                 title: 'Smart Sync',
-                desc: 'Real-time data synchronization. Always up-to-date, everywhere.',
+                desc: 'Seamlessly synchronize schedules and settings across the entire stack in real-time.',
                 metric: 'Live Updates'
               },
               {
@@ -342,12 +359,12 @@ function App() {
                     <feature.icon className="w-8 h-8 text-primary drop-shadow-[0_0_12px_rgba(0,255,136,0.5)]" />
                   </div>
                 </div>
-                
+
                 {/* Content */}
                 <div className="flex-1 pt-2">
                   <div className="flex items-center justify-between mb-3">
                     <h3 className="text-2xl font-bold">{feature.title}</h3>
-                    <div className="flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-lg">
+                    <div className="hidden md:flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-lg">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(0,255,136,0.6)]" />
                       <span className="text-sm font-semibold text-primary whitespace-nowrap">{feature.metric}</span>
                     </div>
@@ -357,14 +374,14 @@ function App() {
               </div>
             ))}
           </div>
-          
+
           {/* Central Value Proposition, will be used and added for the login sign in page */}
           <div className="max-w-5xl mx-auto">
             <div className="relative p-12 bg-gradient-to-br from-card/90 to-card/60 backdrop-blur-xl border-2 border-primary/30 rounded-3xl shadow-2xl shadow-primary/10">
               {/* Decorative elements */}
               <div className="absolute -top-6 -left-6 w-32 h-32 bg-primary/20 rounded-full blur-3xl" />
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/20 rounded-full blur-3xl" />
-              
+
               <div className="relative">
                 <div className="text-center mb-8">
                   <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary/30 to-accent/30 rounded-2xl mb-6 shadow-lg shadow-primary/20">
@@ -375,7 +392,7 @@ function App() {
                     One account. One password. Instant access to every service in the ecosystem.
                   </p>
                 </div>
-                
+
                 {/* Visual representation */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {[
@@ -399,7 +416,7 @@ function App() {
         </div>
       </section>
       {/* For Developers Section - Epic */}
-      <section className="relative py-32 border-t border-primary/10 bg-gradient-to-b from-transparent via-accent/5 to-transparent">
+      <section id='developers' className="relative py-32 border-t border-primary/10 bg-gradient-to-b from-transparent via-accent/5 to-transparent">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,255,136,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,255,136,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
 
         <div className="relative max-w-6xl mx-auto px-6">
@@ -422,23 +439,31 @@ function App() {
                 We provide world-class infrastructure, hosting, technical support, and visibility for ambitious student projects.
               </p>
 
-              <button className="px-8 py-4 bg-primary text-primary-foreground rounded-xl hover:scale-105 transition-all duration-300 flex items-center gap-3 shadow-[0_0_30px_rgba(0,255,136,0.3)]">
-                <span className="font-semibold">Join the Team</span>
-                <Rocket className="w-5 h-5" />
-              </button>
+              <div className='inline-flex gap-6'>
+                <button className="px-8 py-4 bg-primary text-primary-foreground rounded-sm hover:scale-105 transition-all duration-300 flex items-center gap-3 cursor-pointer">
+                  <span className="font-semibold">Contact Us</span>
+                  <Rocket className="w-5 h-5" />
+                </button>
+
+                <a href='/KAUStack-1-1.pdf' target="_blank" rel="noopener noreferrer"
+                className="px-8 pointer-events-auto py-4 bg-foreground text-primary-foreground rounded-sm hover:scale-105 transition-all duration-300 flex items-center gap-3 cursor-pointer">
+                  <span className="font-semibold">Download The Booklet</span>
+                  <Download className="w-5 h-5" />
+                </a>
+              </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-6">
               {[
-                { icon: Globe, label: 'Free Hosting', desc: 'Deploy instantly' },
-                { icon: Shield, label: 'Enterprise Security', desc: 'Bank-level protection' },
-                { icon: Zap, label: 'Lightning CDN', desc: 'Global performance' },
-                { icon: Users, label: 'Student Community', desc: '1000+ developers' },
+                { icon: Cloudy, label: 'Free Hosting', desc: 'Spin up containers, host APIs, ship apps without the overhead, and pay absolutely nothing.' },
+                { icon: KeyRound, label: 'Unified Auth', desc: 'Stop rebuilding login screens. Use our secure, pre-built student authentication and APIs to ship your features faster.' },
+                { icon: TrendingUp, label: 'Skill Stacking', desc: 'Don’t just code for grades. Ship production software, contribute to open source, and build a portfolio that gets you hired.' },
+                { icon: Megaphone, label: 'Instant Audience', desc: 'Skip the marketing struggle. Stack your app on our ecosystem and reach thousands of students Immediately.' },
               ].map((feature, index) => (
-                <div key={index} className="p-6 bg-card/80 backdrop-blur-xl border border-primary/20 rounded-2xl hover:border-primary/40 hover:scale-105 transition-all duration-300 shadow-lg">
+                <div key={index} className="p-8 bg-card/80 backdrop-blur-xl border border-primary/20 rounded-sm hover:border-primary/40 hover:scale-105 transition-all duration-300 shadow-lg">
                   <feature.icon className="w-10 h-10 text-primary mb-4 drop-shadow-[0_0_12px_rgba(0,255,136,0.4)]" />
                   <h3 className="text-lg font-semibold mb-1">{feature.label}</h3>
-                  <p className="text-sm text-muted-foreground">{feature.desc}</p>
+                  <p className="text-md text-muted-foreground">{feature.desc}</p>
                 </div>
               ))}
             </div>
