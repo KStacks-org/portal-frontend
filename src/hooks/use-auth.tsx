@@ -6,7 +6,7 @@ export function useAuth() {
         queryKey: ['auth-user'],
         queryFn: async () => {
             // This endpoint must exist on your backend to return user details
-            const response = await fetch('https://api.kaustack.com/auth/me', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/me`, {
                 credentials: 'include', // Crucial: tells the browser to send cookies
             });
 
