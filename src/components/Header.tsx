@@ -1,13 +1,15 @@
 import {useState} from "react";
-import {useNavigate, Link} from "@tanstack/react-router";
-import { LogIn, CheckLineIcon, User, LogOut } from "lucide-react";
+import {useNavigate} from "@tanstack/react-router";
+import { LogIn, User, LogOut } from "lucide-react";
 import ThemeToggle from "./ThemeToggle"
+import LocaleSwitcher from "./LocaleSwitcher"
 import {Button} from "@/components/ui/button.tsx";
 import {useAuth} from "@/hooks/use-auth.tsx";
+import { m } from "@/paraglide/messages";
 
 
 export function Header() {
-    const [open, setOpen] = useState(false); // State to close sheet on navigation
+    const [open, setOpen] = useState(false);
 
     const { data: user, isLoading } = useAuth();
     const navigate = useNavigate();
@@ -34,25 +36,27 @@ export function Header() {
 
                         {<img
                             src="/kaustack_logo.svg"
-                            alt="KAU Logo"
+                            alt="KStack Logo"
                             className="md:h-12 md:w-12 h-10 w-10 object-contain transition-transform group-hover:scale-105"
                         />}
 
                         <div className="font-bold md:text-3xl tracking-tight text-foreground text-2xl">
-                            KAU<span className="text-green-600 dark:text-green-400">Stack</span>
+                            K<span className="text-green-600 dark:text-green-400">Stack</span>
                         </div>
                     </div>
 
                     <div>
-                        <span className="hidden md:flex text-sm text-muted-foreground ml-2">“Stacking Solutions, Unlocking Potential”</span>
+                        <span className="hidden md:flex text-sm text-muted-foreground ms-2">{m.header_tagline()}</span>
                     </div>
                 </div>
             </div>
 
             {/* --- RIGHT SIDE: Actions --- */}
             <nav className="flex items-center gap-3">
-                {/* 1. Theme Toggle (Visible on all screens) */}
+                {/* 1. Language Switcher */}
+                <LocaleSwitcher />
 
+                {/* 2. Theme Toggle */}
                 <ThemeToggle/>
 
                 {isLoading ? (
@@ -72,16 +76,16 @@ export function Header() {
                     // User is not logged in
                     <Button onClick={handleLogin} className="flex items-center gap-3 rounded-sm cursor-pointer">
                         <LogIn className="h-4 w-4" />
-                        <span>Login</span>
+                        <span>{m.header_login()}</span>
                     </Button>
                 )}
 
-                {/* 2. DESKTOP LINKS (Hidden on mobile) */}
-                <div className="hidden md:flex items-center gap-6 ml-2">
+                {/* 3. DESKTOP LINKS (Hidden on mobile) */}
+                <div className="hidden md:flex items-center gap-6 ms-2">
 
                 </div>
 
-                {/* 3. MOBILE MENU (Visible only on mobile) */}
+                {/* 4. MOBILE MENU (Visible only on mobile) */}
                 <div className="md:hidden">
                 </div>
             </nav>

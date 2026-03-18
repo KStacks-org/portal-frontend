@@ -1,0 +1,118 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+
+  "site_title": "بوابة KStack",
+  "loading_text": "نبني لنمكّن",
+
+  "header_tagline": "\"نبني لنمكّن\"",
+  "header_login": "الدخول",
+  "header_logout": "الخروج",
+
+  "hero_title_line1": "منظومتك",
+  "hero_title_highlight": "الأكاديمية",
+  "hero_subtitle": "وصول موحد لجميع خدماتك الطلابية",
+
+  "section_official_title": "خدماتنا الرسمية",
+  "section_official_subtitle": "خدمات مبنية ومُدارة من فريق KStack",
+
+  "service_kauindex_name": "KIndex",
+  "service_kauindex_tagline": "بحث المقررات والشُعب",
+  "service_kauindex_desc": "ابحث عن المقررات والشُعب مع فلاتر متقدمة لتجربة بحث فعّالة",
+  "service_kauplanner_name": "KPlanner",
+  "service_kauplanner_tagline": "بناء الجدول الدراسي",
+  "service_kauplanner_desc": "خطّط لفصلك الدراسي واكتشف التعارضات بسهولة",
+  "service_kaugroups_name": "KGroups",
+  "service_kaugroups_tagline": "مجتمعات طلابية",
+  "service_kaugroups_desc": "ابحث عن مجموعات واتساب بناءً على جدولك بسهولة",
+  "service_kaudevs_name": "KDevs",
+  "service_kaudevs_tagline": "موارد المطورين",
+  "service_kaudevs_desc": "تعلّم البناء على المنصة، واستعرض التوثيق، وتعلّم مجاناً",
+  "service_kausubjects_name": "KSubjects",
+  "service_kausubjects_tagline": "مستكشف المواد",
+  "service_kausubjects_desc": "استكشف المواد الدراسية وقيّمها وراجعها مع المجتمع",
+
+  "status_live": "متاح",
+  "status_beta": "تجريبي",
+  "status_coming_soon": "قريباً",
+  "action_open_service": "فتح الخدمة",
+  "action_launching_soon": "إطلاق قريب",
+
+  "section_powered_title": "مدعوم من KStack",
+  "section_powered_subtitle": "مشاريع طلابية مدعومة من بنيتنا التحتية",
+
+  "project_schedly_name": "Schedly",
+  "project_schedly_desc": "أنشئ جميع الجداول الممكنة واختر الأفضل بقوة الخوارزميات.",
+  "project_schedly_author": "ياسر الغامدي",
+  "project_gpa_name": "حاسبة المعدل",
+  "project_gpa_desc": "احسب معدلك التراكمي ودرجات القبول في FCIT.",
+  "project_gpa_author": "ياسر الغامدي",
+  "project_grade_name": "حاسبة الدرجات",
+  "project_grade_desc": "أداة حساب المعدل وتوقع الدرجات",
+  "project_grade_author": "جمعية الرياضيات",
+  "project_yours_name": "مشروعك هنا",
+  "project_yours_desc": "المنصة غير مكتملة بدونك. ابنِ الأداة الأساسية التالية واحجز مكانك.",
+  "project_yours_author": "؟؟؟",
+
+  "by_author": "بواسطة {author}",
+
+  "cta_build_title": "هل تريد البناء معنا؟",
+  "cta_build_subtitle": "احصل على عرض مشروعك هنا مع استضافة مجانية وبنية تحتية ودعم فني",
+  "cta_read_more": "اقرأ المزيد!",
+
+  "section_solution_title_prefix": "المنصة",
+  "section_solution_title_highlight": "الوحيدة",
+  "section_solution_title_suffix": "التي تحتاجها",
+  "section_solution_subtitle": "مفتوح المصدر بالتصميم. الطلاب أولاً بالمهمة. البنية التحتية التي يستحقها طلاب جامعة الملك عبدالعزيز.",
+
+  "feature_opensource_title": "مفتوح المصدر أولاً",
+  "feature_opensource_desc": "KStack مبني بشفافية، ليس لدينا ما نخفيه ولدينا كل شيء لنظهره، كل سطر كود قابل للقراءة والمراجعة والتحسين.",
+  "feature_opensource_metric": "من أجل الصالح العام",
+  "feature_free_title": "مجاني حقاً، إلى الأبد",
+  "feature_free_desc": "الدعم التعليمي لا يجب أن يكون خلف جدار مدفوع. جميع الخدمات مجانية، للأبد.",
+  "feature_free_metric": "لا شيء يتفوق على المجاني",
+  "feature_sync_title": "مزامنة ذكية",
+  "feature_sync_desc": "الجداول والتفضيلات والبيانات تتدفق بسلاسة عبر منظومة KStack بالكامل في الوقت الفعلي. حدّث مرة واحدة، وانعكس في كل مكان.",
+  "feature_sync_metric": "تحديثات فورية",
+  "feature_community_title": "جهد مجتمعي",
+  "feature_community_desc": "هذا ليس مشروع شركة، إنه مبني من أقرانك الذين يواجهون نفس التحديات التي تواجهها كل يوم.",
+  "feature_community_metric": "+1000 مستخدم",
+
+  "sso_title": "تسجيل دخول موحد لكل شيء",
+  "sso_subtitle": "حساب واحد. كلمة مرور واحدة. وصول فوري لكل خدمة في المنظومة.",
+  "sso_more": "المزيد...",
+  "sso_login": "تسجيل الدخول",
+
+  "section_dev_badge": "للمطورين الطلاب",
+  "section_dev_title_line1": "ابنِ المستقبل",
+  "section_dev_title_line2": "معنا",
+  "section_dev_subtitle": "نوفر بنية تحتية عالمية، واستضافة، ودعم فني، وإبراز للمشاريع الطلابية الطموحة.",
+  "action_contact_us": "تواصل معنا",
+  "action_download_booklet": "حمّل الكتيّب",
+
+  "dev_hosting_label": "استضافة مجانية",
+  "dev_hosting_desc": "شغّل الحاويات، واستضف واجهات برمجية، وأطلق تطبيقات بدون تكلفة.",
+  "dev_auth_label": "مصادقة موحدة",
+  "dev_auth_desc": "توقف عن إعادة بناء شاشات الدخول. استخدم نظام المصادقة الآمن الجاهز لشحن ميزاتك بسرعة.",
+  "dev_skill_label": "تراكم المهارات",
+  "dev_skill_desc": "لا تبرمج فقط للدرجات. أطلق برامج إنتاجية، وساهم في المصادر المفتوحة، وابنِ ملفاً يوظّفك.",
+  "dev_audience_label": "جمهور فوري",
+  "dev_audience_desc": "تخطّ صعوبة التسويق. ضع تطبيقك في منظومتنا وصل لآلاف الطلاب فوراً.",
+
+  "section_vision_title": "مجرد البداية",
+  "section_vision_subtitle": "منظومتنا تتوسع. خدمات أكثر. ميزات أكثر. إمكانيات أكثر.",
+  "section_vision_cta": "انضم إلينا في هذه الرحلة.",
+
+  "footer_brand": "KStack",
+  "footer_brand_subtitle": "ابتكار بقيادة الطلاب",
+  "footer_tagline": "مبني من الطلاب، للطلاب في جامعة الملك عبدالعزيز",
+  "footer_github": "GitHub",
+  "footer_twitter": "تويتر",
+  "footer_copyright": "© 2026 KStack. صُنع بـ ❤ في جدة.",
+
+  "login_success_title": "تمت المصادقة بنجاح",
+  "login_success_subtitle": "أهلاً بك في KStack. جلستك نشطة الآن. سيتم تحويلك قريباً.",
+  "login_success_button": "الذهاب إلى لوحة القيادة",
+
+  "language_label": "اللغة",
+  "current_locale": "اللغة الحالية: {locale}"
+}

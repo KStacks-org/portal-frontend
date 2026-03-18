@@ -23,6 +23,8 @@ import { Sparkles } from '../components/animate-ui/icons/sparkles';
 import {Particles} from "@/components/ui/particles.tsx";
 import {TopographyBackground} from "@/components/ui/topography.tsx";
 
+import { m } from '@/paraglide/messages';
+
 export const Route = createFileRoute('/')({ component: App })
 
 function App() {
@@ -58,15 +60,15 @@ function App() {
           {/* Main headline with glow effect */}
           <div className="text-center max-w-5xl mx-auto mb-8">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1] tracking-tight">
-              Your Academic
+              {m.hero_title_line1()}
               <br />
               <span className="bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(0,255,136,0.3)]">
-                Ecosystem
+                {m.hero_title_highlight()}
               </span>
             </h1>
 
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-              Access all your student services in one unified platform
+              {m.hero_subtitle()}
             </p>
           </div>
         </div>
@@ -78,10 +80,10 @@ function App() {
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
               <Layers className="w-8 h-8 text-primary drop-shadow-[0_0_12px_rgba(0,255,136,0.5)]" />
-              <h2 className="text-3xl md:text-4xl font-bold">Official Stack Services</h2>
+              <h2 className="text-3xl md:text-4xl font-bold">{m.section_official_title()}</h2>
             </div>
             <p className="text-lg text-muted-foreground">
-              Core services built and maintained by the KAUStack team
+              {m.section_official_subtitle()}
             </p>
           </div>
 
@@ -89,49 +91,54 @@ function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                name: 'KAUIndex',
-                tagline: 'Course & Section Search',
-                desc: 'Find courses and sections with advanced filtering for a powerful searching experience',
+                name: m.service_kauindex_name(),
+                tagline: m.service_kauindex_tagline(),
+                desc: m.service_kauindex_desc(),
                 icon: Search,
-                status: 'Live',
+                status: m.status_live(),
+                statusKey: 'Live',
                 link: 'https://kauindex.com',
                 color: 'primary',
               },
               {
-                name: 'KAUPlanner',
-                tagline: 'Schedule Builder',
-                desc: 'Plan your semester with visual conflict detection',
+                name: m.service_kauplanner_name(),
+                tagline: m.service_kauplanner_tagline(),
+                desc: m.service_kauplanner_desc(),
                 icon: Calendar,
-                status: 'Live',
+                status: m.status_live(),
+                statusKey: 'Live',
                 link: 'https://kauindex.com/planner',
                 color: 'accent',
               },
               {
-                name: 'KAUGroups',
-                tagline: 'Student Communities',
-                desc: 'Find Whatsapp groups based on your own schedule with ease',
+                name: m.service_kaugroups_name(),
+                tagline: m.service_kaugroups_tagline(),
+                desc: m.service_kaugroups_desc(),
                 icon: Users,
-                status: 'Beta',
+                status: m.status_beta(),
+                statusKey: 'Beta',
                 link: '#',
                 color: 'primary',
               },
 
               {
-                name: 'KAUDevs',
-                tagline: 'Developer Resources',
-                desc: 'Learn how to build on the stack, access documentation, and learn for free',
+                name: m.service_kaudevs_name(),
+                tagline: m.service_kaudevs_tagline(),
+                desc: m.service_kaudevs_desc(),
                 icon: Code2,
-                status: 'Coming Soon',
+                status: m.status_coming_soon(),
+                statusKey: 'Coming Soon',
                 link: '#',
                 color: 'primary',
               },
 
               {
-                name: 'KAUSubjects',
-                tagline: 'Subject Explorer',
-                desc: 'Explore subjects, rate, and review them with the community',
+                name: m.service_kausubjects_name(),
+                tagline: m.service_kausubjects_tagline(),
+                desc: m.service_kausubjects_desc(),
                 icon: BookOpen,
-                status: 'Coming Soon',
+                status: m.status_coming_soon(),
+                statusKey: 'Coming Soon',
                 link: '#',
                 color: 'primary',
               },
@@ -140,11 +147,11 @@ function App() {
                 key={index}
                 href={service.link}
                 className={`group relative block p-8 bg-card from-card/90 to-card/70 backdrop-blur-xl border-2 border-primary/20 rounded-sm hover:border-primary/50 hover:scale-[1.02] transition-all duration-300 shadow-xl hover:shadow-primary/20 ${
-  service.status === 'Live'
+  service.statusKey === 'Live'
     ? 'border-primary/40 hover:border-primary/60'
-    : service.status === 'Beta'
+    : service.statusKey === 'Beta'
     ? 'border-primary/40 hover:border-accent/60'
-    : service.status === 'Coming Soon'
+    : service.statusKey === 'Coming Soon'
     ? 'border-dashed border-muted/30 opacity-95'
     : ''
 }`}
@@ -152,9 +159,9 @@ function App() {
 
                 <div className="relative">
                   {/* Status badge */}
-                  <div className="absolute -top-4 -right-4">
-                    <div className={`px-3 py-1 ${service.status === 'Live' ? 'hidden bg-primary/20 border-primary/40' : service.status === 'Beta' ? 'bg-accent/20 border-accent/40' : 'bg-muted/20 border-border'} border rounded-sm`}>
-                      <span className={`text-xs font-bold ${service.status === 'Live' ? 'text-primary' : service.status === 'Beta' ? 'text-accent' : 'text-muted-foreground'}`}>
+                  <div className="absolute -top-4 -end-4">
+                    <div className={`px-3 py-1 ${service.statusKey === 'Live' ? 'hidden bg-primary/20 border-primary/40' : service.statusKey === 'Beta' ? 'bg-accent/20 border-accent/40' : 'bg-muted/20 border-border'} border rounded-sm`}>
+                      <span className={`text-xs font-bold ${service.statusKey === 'Live' ? 'text-primary' : service.statusKey === 'Beta' ? 'text-accent' : 'text-muted-foreground'}`}>
                         {service.status}
                       </span>
                     </div>
@@ -173,9 +180,9 @@ function App() {
                   {/* Access button */}
                   <div className="flex items-center justify-between pt-4 border-t border-primary/10">
                     <span className="text-sm font-semibold text-primary">
-                      {service.status === 'Coming Soon' ? 'Launching Soon' : 'Open Service'}
+                      {service.statusKey === 'Coming Soon' ? m.action_launching_soon() : m.action_open_service()}
                     </span>
-                    <ArrowRight className="w-5 h-5 text-primary group-hover:translate-x-2 transition-transform" />
+                    <ArrowRight className="w-5 h-5 text-primary group-hover:translate-x-2 rtl:group-hover:-translate-x-2 transition-transform" />
                   </div>
                 </div>
               </a>
@@ -190,10 +197,10 @@ function App() {
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
               <Zap className="w-8 h-8 text-accent drop-shadow-[0_0_12px_rgba(10,77,46,0.5)]" />
-              <h2 className="text-3xl md:text-4xl font-bold">Powered by KAUStack</h2>
+              <h2 className="text-3xl md:text-4xl font-bold">{m.section_powered_title()}</h2>
             </div>
             <p className="text-lg text-muted-foreground">
-              Student projects sponsored and supported by our infrastructure
+              {m.section_powered_subtitle()}
             </p>
           </div>
 
@@ -201,38 +208,42 @@ function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                name: 'Schedly',
-                desc: 'Generate all possible class schedules and pick the best one, using the raw power of algorithms.',
-                author: 'Yasir Alghamdi',
+                name: m.project_schedly_name(),
+                desc: m.project_schedly_desc(),
+                author: m.project_schedly_author(),
                 icon: Sigma,
                 link: 'http://schedly.y-tools.xyz/',
+                isPlaceholder: false,
               },
               {
-                name: 'GPA Calculator',
-                desc: 'Calculate your GPA and FCIT acceptance grades.',
-                author: 'Yasir Alghamdi',
+                name: m.project_gpa_name(),
+                desc: m.project_gpa_desc(),
+                author: m.project_gpa_author(),
                 icon: Calculator,
                 link: 'https://fcit-calc.y-tools.xyz/',
+                isPlaceholder: false,
               },
               {
-                name: 'Grade Calculator',
-                desc: 'GPA and grade prediction tool',
-                author: 'Math Society',
+                name: m.project_grade_name(),
+                desc: m.project_grade_desc(),
+                author: m.project_grade_author(),
                 icon: GraduationCap,
                 link: '#',
+                isPlaceholder: false,
               },
               {
-                name: 'Your Project Here',
-                desc: 'The stack is incomplete without you. Build the next essential tool and claim this spot.',
-                author: '???',
+                name: m.project_yours_name(),
+                desc: m.project_yours_desc(),
+                author: m.project_yours_author(),
                 icon: Plus,
                 link: '#',
+                isPlaceholder: true,
               },
             ].map((project, index) => (
               <a
                 key={index}
                 href={project.link}
-                className={`group relative block p-6 bg-card/60 backdrop-blur-xl border border-border rounded-2xl hover:border-accent/40 hover:scale-[1.02] transition-all duration-300 ${project.name === 'Your Project Here' ? 'border-dashed border-2 opacity-80 hover:opacity-100' : 'border-solid'}`}
+                className={`group relative block p-6 bg-card/60 backdrop-blur-xl border border-border rounded-2xl hover:border-accent/40 hover:scale-[1.02] transition-all duration-300 ${project.isPlaceholder ? 'border-dashed border-2 opacity-80 hover:opacity-100' : 'border-solid'}`}
               >
                 <div className="relative">
                   {/* Icon */}
@@ -248,7 +259,7 @@ function App() {
 
                   {/* Author */}
                   <div className="pt-3 border-t border-border/50">
-                    <p className="text-sm2 text-muted-foreground">by {project.author}</p>
+                    <p className="text-sm2 text-muted-foreground">{m.by_author({ author: project.author })}</p>
                   </div>
 
                 </div>
@@ -260,8 +271,8 @@ function App() {
           <div className="mt-12 p-8 bg-gradient-to-r from-accent/10 to-primary/10 backdrop-blur-xl border border-accent/20 rounded-sm">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div>
-                <h3 className="text-2xl font-bold mb-2">Want to build with us?</h3>
-                <p className="text-muted-foreground">Get your project featured here with free hosting, infrastructure, and tech support</p>
+                <h3 className="text-2xl font-bold mb-2">{m.cta_build_title()}</h3>
+                <p className="text-muted-foreground">{m.cta_build_subtitle()}</p>
               </div>
               <button
                 onClick={() => {
@@ -271,7 +282,7 @@ function App() {
                 aria-label="Scroll to Developers section"
                 className="px-8 py-4 bg-accent text-accent-foreground rounded-sm hover:scale-105 transition-all duration-300 flex items-center gap-3 shadow-lg whitespace-nowrap cursor-pointer"
               >
-                <span className="font-semibold">Read More! </span>
+                <span className="font-semibold">{m.cta_read_more()} </span>
                 <Rocket className="w-5 h-5" />
               </button>
             </div>
@@ -295,15 +306,16 @@ function App() {
 
 
             <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              The only
+              {m.section_solution_title_prefix()}
               <span className="from-primary to-accent bg-clip-text text-transparent bg-gradient-to-r mx-3">
-                Stack
+                {m.section_solution_title_highlight()}
               </span>
-              you need
+              {m.section_solution_title_suffix()}
             </h2>
 
             <p className="text-xl text-muted-foreground">
-                Open source by design. Student-first by mission. The infrastructure KAU Students deserve.            </p>
+                {m.section_solution_subtitle()}
+            </p>
           </div>
 
           {/* Feature List - Clean & Minimal */}
@@ -311,27 +323,27 @@ function App() {
             {[
               {
                 icon: GitBranch,
-                title: 'Open Source First',
-                desc: 'KAUStack is built in the open, we have nothing to hide, and everything to show, every line of code is readable, auditable, and improvable.',
-                metric: 'For The Greater Good'
+                title: m.feature_opensource_title(),
+                desc: m.feature_opensource_desc(),
+                metric: m.feature_opensource_metric(),
               },
               {
                 icon: SaudiRiyal,
-                title: 'Truly Free, Forever',
-                desc: 'Education support shouldn’t have a paywall. All services are free, forever.',
-                metric: 'You Can Never Beat Free'
+                title: m.feature_free_title(),
+                desc: m.feature_free_desc(),
+                metric: m.feature_free_metric(),
               },
               {
                 icon: RefreshCw,
-                title: 'Smart Sync',
-                desc: 'Schedules, preferences, and data flow seamlessly across the entire KAUStack ecosystem in real time. Update once, reflect everywhere.',
-                metric: 'Live Updates'
+                title: m.feature_sync_title(),
+                desc: m.feature_sync_desc(),
+                metric: m.feature_sync_metric(),
               },
               {
                 icon: Users,
-                title: 'A Community Effort',
-                desc: 'This isn\'t a corporate project, It’s built by your peers who face the same challenges you do every day.',
-                metric: '1000+ Users'
+                title: m.feature_community_title(),
+                desc: m.feature_community_desc(),
+                metric: m.feature_community_metric(),
               },
             ].map((feature, index) => (
               <div
@@ -365,19 +377,19 @@ function App() {
                   <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary/30 to-accent/30 rounded-2xl mb-6 shadow-lg shadow-primary/20">
                     <Layers className="w-10 h-10 text-primary drop-shadow-[0_0_16px_rgba(0,255,136,0.6)]" />
                   </div>
-                  <h3 className="text-3xl font-bold mb-4">Single Sign-On for Everything</h3>
+                  <h3 className="text-3xl font-bold mb-4">{m.sso_title()}</h3>
                   <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                    One account. One password. Instant access to every service in the ecosystem.
+                    {m.sso_subtitle()}
                   </p>
                 </div>
 
                 {/* Visual representation */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {[
-                    { name: 'KAUIndex', icon: Search },
-                    { name: 'KAUPlanner', icon: Calendar },
-                    { name: 'KAUGroups', icon: Users },
-                    { name: 'More...', icon: Sparkles },
+                    { name: m.service_kauindex_name(), icon: Search },
+                    { name: m.service_kauplanner_name(), icon: Calendar },
+                    { name: m.service_kaugroups_name(), icon: Users },
+                    { name: m.sso_more(), icon: Sparkles },
                   ].map((service, index) => (
                     <div
                       key={index}
@@ -399,7 +411,7 @@ function App() {
                           aria-label="Scroll to Developers section"
                           className="px-8 py-4 bg-accent text-accent-foreground rounded-sm hover:scale-105 transition-all duration-300 flex items-center gap-3 shadow-lg whitespace-nowrap cursor-pointer"
                       >
-                          <span className="font-semibold">Log in / Sign in </span>
+                          <span className="font-semibold">{m.sso_login()} </span>
                           <LogIn className="w-5 h-5" />
                       </button>
                   </div>
@@ -420,30 +432,30 @@ function App() {
             <div>
               <div className="inline-flex items-center gap-2 px-5 py-2 bg-accent/20 border border-accent/40 rounded-full mb-8">
                 <Code2 className="w-4 h-4 text-primary" />
-                <span className="text-sm font-semibold uppercase tracking-wide">For Student Developers</span>
+                <span className="text-sm font-semibold uppercase tracking-wide">{m.section_dev_badge()}</span>
               </div>
 
               <h2 className="text-5xl font-bold mb-6 leading-tight">
-                Build the Future
+                {m.section_dev_title_line1()}
                 <br />
                 <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  With Us
+                  {m.section_dev_title_line2()}
                 </span>
               </h2>
 
               <p className="text-xl text-muted-foreground mb-8">
-                We provide world-class infrastructure, hosting, technical support, and visibility for ambitious student projects.
+                {m.section_dev_subtitle()}
               </p>
 
               <div className='inline-flex gap-6'>
                 <button className="px-8 py-4 bg-primary text-primary-foreground rounded-sm hover:scale-105 transition-all duration-300 flex items-center gap-3 cursor-pointer">
-                  <span className="font-semibold">Contact Us</span>
+                  <span className="font-semibold">{m.action_contact_us()}</span>
                   <Send className="w-5 h-5" />
                 </button>
 
                 <a href='/KAUStack-1-1.pdf' target="_blank" rel="noopener noreferrer"
                 className="px-8 pointer-events-auto py-4 bg-foreground text-primary-foreground rounded-sm hover:scale-105 transition-all duration-300 flex items-center gap-3 cursor-pointer">
-                  <span className="font-semibold">Download The Booklet</span>
+                  <span className="font-semibold">{m.action_download_booklet()}</span>
                   <Download className="w-5 h-5" />
                 </a>
               </div>
@@ -451,10 +463,10 @@ function App() {
 
             <div className="grid md:grid-cols-2 gap-6">
               {[
-                { icon: Cloudy, label: 'Free Hosting', desc: 'Spin up containers, host APIs, ship apps without the overhead, and pay absolutely nothing.' },
-                { icon: KeyRound, label: 'Unified Auth', desc: 'Stop rebuilding login screens. Use our secure, pre-built student authentication and APIs to ship your features faster.' },
-                { icon: TrendingUp, label: 'Skill Stacking', desc: 'Don’t just code for grades. Ship production software, contribute to open source, and build a portfolio that gets you hired.' },
-                { icon: Megaphone, label: 'Instant Audience', desc: 'Skip the marketing struggle. Stack your app on our ecosystem and reach thousands of students Immediately.' },
+                { icon: Cloudy, label: m.dev_hosting_label(), desc: m.dev_hosting_desc() },
+                { icon: KeyRound, label: m.dev_auth_label(), desc: m.dev_auth_desc() },
+                { icon: TrendingUp, label: m.dev_skill_label(), desc: m.dev_skill_desc() },
+                { icon: Megaphone, label: m.dev_audience_label(), desc: m.dev_audience_desc() },
               ].map((feature, index) => (
                 <div key={index} className="p-8 bg-card/80 backdrop-blur-xl border border-primary/20 rounded-sm hover:border-primary/40 hover:scale-105 transition-all duration-300 shadow-lg">
                   <feature.icon className="w-10 h-10 text-primary mb-4 drop-shadow-[0_0_12px_rgba(0,255,136,0.4)]" />
@@ -485,13 +497,13 @@ function App() {
             <Sparkles animateOnView animateOnViewOnce={false} animation="path-loop" animateOnViewMargin="0px" className="w-26 h-26 text-primary mx-auto mb-8 drop-shadow-[0_0_20px_rgba(0,255,136,0.5)]" />
 
             <h2 className="text-5xl md:text-6xl font-bold mb-6">
-              Just the Beginning
+              {m.section_vision_title()}
             </h2>
 
             <p className="text-2xl text-muted-foreground mb-12">
-              Our ecosystem is expanding. More services. More features. More possibilities.
+              {m.section_vision_subtitle()}
               <br />
-              <span className="text-foreground font-medium">Join us on this journey.</span>
+              <span className="text-foreground font-medium">{m.section_vision_cta()}</span>
             </p>
 
           </div>
@@ -510,30 +522,30 @@ function App() {
 							className="h-12 w-12 object-contain transition-transform group-hover:scale-105"
 						/>}
               <div>
-                <div className="font-bold text-xl">KAUStack</div>
-                <div className="text-xs text-muted-foreground">Student-Powered Innovation</div>
+                <div className="font-bold text-xl">{m.footer_brand()}</div>
+                <div className="text-xs text-muted-foreground">{m.footer_brand_subtitle()}</div>
               </div>
             </div>
 
             {/* Tagline */}
             <p className="text-muted-foreground text-center">
-              Built by students, for students at King Abdulaziz University
+              {m.footer_tagline()}
             </p>
 
             {/* Social links */}
             <div className="flex items-center gap-6">
               <a href="https://github.com/KAUStack" className="text-muted-foreground hover:text-primary transition-colors">
-                GitHub
+                {m.footer_github()}
               </a>
               <a href="https://x.com/KauIndex" className="text-muted-foreground hover:text-primary transition-colors">
-                Twitter
+                {m.footer_twitter()}
               </a>
             </div>
           </div>
 
           <div className="text-center pt-8 border-t border-primary/10">
             <p className="text-sm text-muted-foreground">
-              © 2026 KAUStack. Built with <span className="text-primary">❤</span> in Jeddah.
+              {m.footer_copyright()}
             </p>
           </div>
         </div>

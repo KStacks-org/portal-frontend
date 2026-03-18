@@ -3,14 +3,13 @@ import {
   Scripts,
   createRootRouteWithContext,
 } from '@tanstack/react-router'
-import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
-import { TanStackDevtools } from '@tanstack/react-devtools'
 
 import {Header} from '../components/Header.tsx'
 
 import TanStackQueryDevtools from '../integrations/tanstack-query/devtools'
 
 import { getLocale } from '@/paraglide/runtime'
+import { m } from '@/paraglide/messages'
 
 import appCss from '../styles.css?url'
 
@@ -23,12 +22,15 @@ interface MyRouterContext {
   queryClient: QueryClient
 }
 
+const rtlLocales = ['ar']
+
 export const Route = createRootRouteWithContext<MyRouterContext>()({
   beforeLoad: async () => {
-    // Other redirect strategies are possible; see
-    // https://github.com/TanStack/router/tree/main/examples/react/i18n-paraglide#offline-redirect
     if (typeof document !== 'undefined') {
-      document.documentElement.setAttribute('lang', getLocale())
+      const locale = getLocale()
+      const dir = rtlLocales.includes(locale) ? 'rtl' : 'ltr'
+      document.documentElement.setAttribute('lang', locale)
+      document.documentElement.setAttribute('dir', dir)
     }
   },
 
@@ -42,7 +44,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'KAUStack Portal',
+        title: m.site_title(),
       },
     ],
     links: [
@@ -50,6 +52,9 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         rel: 'stylesheet',
         href: appCss,
       },
+      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&display=swap' },
       { rel: 'icon', type: 'image/svg+xml', href: '/kaustack_logo.svg' },
     ],
   }),
@@ -58,9 +63,11 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {
+  const locale = getLocale()
+  const dir = rtlLocales.includes(locale) ? 'rtl' : 'ltr'
+
   return (
-    <html lang={getLocale()}
-    className="dark">
+    <html lang={locale} dir={dir} className="dark">
       <head>
         <HeadContent />
       </head>

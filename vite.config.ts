@@ -20,7 +20,7 @@ const config = defineConfig({
     paraglideVitePlugin({
       project: './project.inlang',
       outdir: './src/paraglide',
-      strategy: ['url'],
+      strategy: ['url', 'preferredLanguage', 'baseLocale'],
     }),
     nitro(),
     // this is the plugin that enables path aliases
