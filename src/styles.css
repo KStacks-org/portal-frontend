@@ -143,6 +143,22 @@ code {
   }
 }
 
+/* ── RTL / Arabic overrides ── */
+[dir="rtl"] body {
+  font-family:
+    'Alexandria', 'Segoe UI', 'Tahoma', 'Arial', sans-serif;
+}
+
+[dir="rtl"] .border-l-2 {
+  border-left-width: 0;
+  border-right-width: 2px;
+}
+
+[dir="rtl"] .hover\:pl-10:hover {
+  padding-left: 2rem;
+  padding-right: 2.5rem;
+}
+
 
 @theme inline {
 --font-sans: var(--font-sans);

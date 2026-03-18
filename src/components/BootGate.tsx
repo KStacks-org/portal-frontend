@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { m } from "@/paraglide/messages";
 
 function BootLoader({ exiting }: { exiting: boolean }) {
   return (
@@ -15,7 +16,7 @@ function BootLoader({ exiting }: { exiting: boolean }) {
       <div className="flex items-center gap-3">
         <div className="h-6 w-6 animate-spin rounded-full border-2 border-white/20 border-t-white" />
         <span className="text-white/80" aria-hidden="true">
-          Stacking...
+          {m.loading_text()}
         </span>
       </div>
     </div>

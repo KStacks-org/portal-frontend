@@ -1,9 +1,118 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
-  "home_page": "Home page",
-  "about_page": "About page",
-  "example_message": "Welcome to your i18n app.",
+
+  "site_title": "KStack Portal",
+  "loading_text": "Stacking...",
+
+  "header_tagline": "\"Stacking Solutions, Unlocking Potential\"",
+  "header_login": "Login",
+  "header_logout": "Logout",
+
+  "hero_title_line1": "Your Academic",
+  "hero_title_highlight": "Ecosystem",
+  "hero_subtitle": "Access all your student services in one unified platform",
+
+  "section_official_title": "Official Stack Services",
+  "section_official_subtitle": "Core services built and maintained by the KStack team",
+
+  "service_kauindex_name": "KAUIndex",
+  "service_kauindex_tagline": "Course & Section Search",
+  "service_kauindex_desc": "Find courses and sections with advanced filtering for a powerful searching experience",
+  "service_kauplanner_name": "KAUPlanner",
+  "service_kauplanner_tagline": "Schedule Builder",
+  "service_kauplanner_desc": "Plan your semester with visual conflict detection",
+  "service_kaugroups_name": "KAUGroups",
+  "service_kaugroups_tagline": "Student Communities",
+  "service_kaugroups_desc": "Find Whatsapp groups based on your own schedule with ease",
+  "service_kaudevs_name": "KAUDevs",
+  "service_kaudevs_tagline": "Developer Resources",
+  "service_kaudevs_desc": "Learn how to build on the stack, access documentation, and learn for free",
+  "service_kausubjects_name": "KAUSubjects",
+  "service_kausubjects_tagline": "Subject Explorer",
+  "service_kausubjects_desc": "Explore subjects, rate, and review them with the community",
+
+  "status_live": "Live",
+  "status_beta": "Beta",
+  "status_coming_soon": "Coming Soon",
+  "action_open_service": "Open Service",
+  "action_launching_soon": "Launching Soon",
+
+  "section_powered_title": "Powered by KStack",
+  "section_powered_subtitle": "Student projects sponsored and supported by our infrastructure",
+
+  "project_schedly_name": "Schedly",
+  "project_schedly_desc": "Generate all possible class schedules and pick the best one, using the raw power of algorithms.",
+  "project_schedly_author": "Yasir Alghamdi",
+  "project_gpa_name": "GPA Calculator",
+  "project_gpa_desc": "Calculate your GPA and FCIT acceptance grades.",
+  "project_gpa_author": "Yasir Alghamdi",
+  "project_grade_name": "Grade Calculator",
+  "project_grade_desc": "GPA and grade prediction tool",
+  "project_grade_author": "Math Society",
+  "project_yours_name": "Your Project Here",
+  "project_yours_desc": "The stack is incomplete without you. Build the next essential tool and claim this spot.",
+  "project_yours_author": "???",
+
+  "by_author": "by {author}",
+
+  "cta_build_title": "Want to build with us?",
+  "cta_build_subtitle": "Get your project featured here with free hosting, infrastructure, and tech support",
+  "cta_read_more": "Read More!",
+
+  "section_solution_title_prefix": "The only",
+  "section_solution_title_highlight": "Stack",
+  "section_solution_title_suffix": "you need",
+  "section_solution_subtitle": "Open source by design. Student-first by mission. The infrastructure KAU Students deserve.",
+
+  "feature_opensource_title": "Open Source First",
+  "feature_opensource_desc": "KStack is built in the open, we have nothing to hide, and everything to show, every line of code is readable, auditable, and improvable.",
+  "feature_opensource_metric": "For The Greater Good",
+  "feature_free_title": "Truly Free, Forever",
+  "feature_free_desc": "Education support shouldn't have a paywall. All services are free, forever.",
+  "feature_free_metric": "You Can Never Beat Free",
+  "feature_sync_title": "Smart Sync",
+  "feature_sync_desc": "Schedules, preferences, and data flow seamlessly across the entire KStack ecosystem in real time. Update once, reflect everywhere.",
+  "feature_sync_metric": "Live Updates",
+  "feature_community_title": "A Community Effort",
+  "feature_community_desc": "This isn't a corporate project, It's built by your peers who face the same challenges you do every day.",
+  "feature_community_metric": "1000+ Users",
+
+  "sso_title": "Single Sign-On for Everything",
+  "sso_subtitle": "One account. One password. Instant access to every service in the ecosystem.",
+  "sso_more": "More...",
+  "sso_login": "Log in / Sign in",
+
+  "section_dev_badge": "For Student Developers",
+  "section_dev_title_line1": "Build the Future",
+  "section_dev_title_line2": "With Us",
+  "section_dev_subtitle": "We provide world-class infrastructure, hosting, technical support, and visibility for ambitious student projects.",
+  "action_contact_us": "Contact Us",
+  "action_download_booklet": "Download The Booklet",
+
+  "dev_hosting_label": "Free Hosting",
+  "dev_hosting_desc": "Spin up containers, host APIs, ship apps without the overhead, and pay absolutely nothing.",
+  "dev_auth_label": "Unified Auth",
+  "dev_auth_desc": "Stop rebuilding login screens. Use our secure, pre-built student authentication and APIs to ship your features faster.",
+  "dev_skill_label": "Skill Stacking",
+  "dev_skill_desc": "Don't just code for grades. Ship production software, contribute to open source, and build a portfolio that gets you hired.",
+  "dev_audience_label": "Instant Audience",
+  "dev_audience_desc": "Skip the marketing struggle. Stack your app on our ecosystem and reach thousands of students Immediately.",
+
+  "section_vision_title": "Just the Beginning",
+  "section_vision_subtitle": "Our ecosystem is expanding. More services. More features. More possibilities.",
+  "section_vision_cta": "Join us on this journey.",
+
+  "footer_brand": "KStack",
+  "footer_brand_subtitle": "Student-Powered Innovation",
+  "footer_tagline": "Built by students, for students at King Abdulaziz University",
+  "footer_github": "GitHub",
+  "footer_twitter": "Twitter",
+  "footer_copyright": "© 2026 KStack. Built with ❤ in Jeddah.",
+
+  "login_success_title": "Authentication Successful",
+  "login_success_subtitle": "Welcome to KStack. Your session is now active. You will be redirected shortly.",
+  "login_success_button": "Go to Dashboard",
+
   "language_label": "Language",
-  "current_locale": "Current locale: {locale}",
-  "learn_router": "Learn Paraglide JS"
+  "current_locale": "Current locale: {locale}"
 }
