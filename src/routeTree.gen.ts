@@ -12,7 +12,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as LoginSuccessRouteImport } from './routes/login-success'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DemoTanstackQueryRouteImport } from './routes/demo/tanstack-query'
-import { Route as DemoI18nRouteImport } from './routes/demo.i18n'
 import { Route as DemoStartServerFuncsRouteImport } from './routes/demo/start.server-funcs'
 import { Route as DemoStartApiRequestRouteImport } from './routes/demo/start.api-request'
 import { Route as DemoApiTqTodosRouteImport } from './routes/demo/api.tq-todos'
@@ -35,11 +34,6 @@ const IndexRoute = IndexRouteImport.update({
 const DemoTanstackQueryRoute = DemoTanstackQueryRouteImport.update({
   id: '/demo/tanstack-query',
   path: '/demo/tanstack-query',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoI18nRoute = DemoI18nRouteImport.update({
-  id: '/demo/i18n',
-  path: '/demo/i18n',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DemoStartServerFuncsRoute = DemoStartServerFuncsRouteImport.update({
@@ -86,7 +80,6 @@ const DemoStartSsrDataOnlyRoute = DemoStartSsrDataOnlyRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/login-success': typeof LoginSuccessRoute
-  '/demo/i18n': typeof DemoI18nRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/demo/api/names': typeof DemoApiNamesRoute
   '/demo/api/tq-todos': typeof DemoApiTqTodosRoute
@@ -100,7 +93,6 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/login-success': typeof LoginSuccessRoute
-  '/demo/i18n': typeof DemoI18nRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/demo/api/names': typeof DemoApiNamesRoute
   '/demo/api/tq-todos': typeof DemoApiTqTodosRoute
@@ -115,7 +107,6 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/login-success': typeof LoginSuccessRoute
-  '/demo/i18n': typeof DemoI18nRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/demo/api/names': typeof DemoApiNamesRoute
   '/demo/api/tq-todos': typeof DemoApiTqTodosRoute
@@ -131,7 +122,6 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/login-success'
-    | '/demo/i18n'
     | '/demo/tanstack-query'
     | '/demo/api/names'
     | '/demo/api/tq-todos'
@@ -145,7 +135,6 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/login-success'
-    | '/demo/i18n'
     | '/demo/tanstack-query'
     | '/demo/api/names'
     | '/demo/api/tq-todos'
@@ -159,7 +148,6 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/login-success'
-    | '/demo/i18n'
     | '/demo/tanstack-query'
     | '/demo/api/names'
     | '/demo/api/tq-todos'
@@ -174,7 +162,6 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LoginSuccessRoute: typeof LoginSuccessRoute
-  DemoI18nRoute: typeof DemoI18nRoute
   DemoTanstackQueryRoute: typeof DemoTanstackQueryRoute
   DemoApiNamesRoute: typeof DemoApiNamesRoute
   DemoApiTqTodosRoute: typeof DemoApiTqTodosRoute
@@ -207,13 +194,6 @@ declare module '@tanstack/react-router' {
       path: '/demo/tanstack-query'
       fullPath: '/demo/tanstack-query'
       preLoaderRoute: typeof DemoTanstackQueryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/i18n': {
-      id: '/demo/i18n'
-      path: '/demo/i18n'
-      fullPath: '/demo/i18n'
-      preLoaderRoute: typeof DemoI18nRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/demo/start/server-funcs': {
@@ -278,7 +258,6 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LoginSuccessRoute: LoginSuccessRoute,
-  DemoI18nRoute: DemoI18nRoute,
   DemoTanstackQueryRoute: DemoTanstackQueryRoute,
   DemoApiNamesRoute: DemoApiNamesRoute,
   DemoApiTqTodosRoute: DemoApiTqTodosRoute,

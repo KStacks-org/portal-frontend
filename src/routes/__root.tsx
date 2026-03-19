@@ -6,8 +6,6 @@ import {
 
 import {Header} from '../components/Header.tsx'
 
-import TanStackQueryDevtools from '../integrations/tanstack-query/devtools'
-
 import { getLocale } from '@/paraglide/runtime'
 import { m } from '@/paraglide/messages'
 
@@ -46,6 +44,10 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       {
         title: m.site_title(),
       },
+      {
+        property: 'og:site_name',
+        content: 'KStack',
+      },
     ],
     links: [
       {
@@ -55,7 +57,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
       { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&display=swap' },
-      { rel: 'icon', type: 'image/svg+xml', href: '/kaustack_logo.svg' },
+      { rel: 'icon', type: 'image/svg+xml', href: '/kstack-dark.svg' },
     ],
   }),
 

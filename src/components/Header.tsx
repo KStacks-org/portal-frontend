@@ -1,4 +1,3 @@
-import {useState} from "react";
 import {useNavigate} from "@tanstack/react-router";
 import { LogIn, User, LogOut } from "lucide-react";
 import ThemeToggle from "./ThemeToggle"
@@ -6,21 +5,40 @@ import LocaleSwitcher from "./LocaleSwitcher"
 import {Button} from "@/components/ui/button.tsx";
 import {useAuth} from "@/hooks/use-auth.tsx";
 import { m } from "@/paraglide/messages";
+import {useQueryClient} from "@tanstack/react-query";
+import {ProjectLogo} from "@/components/ProjectLogo.tsx";
 
 
 export function Header() {
-    const [open, setOpen] = useState(false);
 
     const { data: user, isLoading } = useAuth();
     const navigate = useNavigate();
 
+    const queryClient = useQueryClient();
+    const baseURL = import.meta.env.VITE_API_URL;
+
 
     const handleLogin = () => {
 
-        const baseURL = import.meta.env.VITE_API_URL;
-
-
         window.location.href = `${baseURL}/auth/login`;
+    }
+
+    // not fully figured out yet
+    const handleLogout = () => {
+
+        try {
+
+            // this currently doesn't exist, but there should be an endpoint for the service to clear JWT
+            // await fetch(`${baseURL}/auth/logout`, {method: 'POST', credentials: 'include'});
+
+
+            queryClient.setQueryData(['auth-user'], null)
+            void navigate({to: "/"});
+        }
+        catch (e) {
+            console.error("Error logging in: ", e);
+        }
+
     }
 
     return (
@@ -34,13 +52,9 @@ export function Header() {
                 <div>
                     <div className="flex items-center gap-3">
 
-                        {<img
-                            src="/kaustack_logo.svg"
-                            alt="KStack Logo"
-                            className="md:h-12 md:w-12 h-10 w-10 object-contain transition-transform group-hover:scale-105"
-                        />}
+                        <ProjectLogo projectId={'kstack'} projectName={'kstack'}/>
 
-                        <div className="font-bold md:text-3xl tracking-tight text-foreground text-2xl">
+                        <div className=" hidden md:block font-bold md:text-3xl tracking-tight text-foreground text-2xl ">
                             K<span className="text-green-600 dark:text-green-400">Stack</span>
                         </div>
                     </div>
@@ -53,11 +67,11 @@ export function Header() {
 
             {/* --- RIGHT SIDE: Actions --- */}
             <nav className="flex items-center gap-3">
-                {/* 1. Language Switcher */}
-                <LocaleSwitcher />
-
-                {/* 2. Theme Toggle */}
-                <ThemeToggle/>
+                {/* 1 & 2. Switchers */}
+                <div className="flex items-center gap-2 shrink-0">
+                    <LocaleSwitcher />
+                    <ThemeToggle/>
+                </div>
 
                 {isLoading ? (
                     <div className="h-9 w-20 animate-pulse bg-muted rounded-sm" />
@@ -65,10 +79,10 @@ export function Header() {
                     // User is logged in
                     <div className="flex items-center gap-4">
                         <div className="flex items-center gap-2 text-sm font-medium">
-                            <User className="h-4 w-4" />
-                            <span>{user.name}</span>
+                            <User className="h-4 w-4 shrink-0" />
+                            <span className="truncate max-w-[80px] sm:max-w-[150px]">{user.name}</span>
                         </div>
-                        <Button variant="ghost" size="sm" onClick={() => {/* handle logout */}}>
+                        <Button variant="ghost" size="sm" onClick={() => {handleLogout()}}>
                             <LogOut className="h-4 w-4" />
                         </Button>
                     </div>

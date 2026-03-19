@@ -22,6 +22,7 @@ export default function ThemeToggle() {
     <Button
       variant="ghost"
       size="icon"
+      className="cursor-pointer"
       aria-label="Toggle theme"
       onClick={() => {
         const next = getTheme() === "dark" ? "light" : "dark"

@@ -15,8 +15,8 @@ import {
     LogIn, Send,
 
 } from 'lucide-react'
-
-import { ArrowRight, Layers, Code2, Users, Rocket, Search, Calendar, BookOpen, GraduationCap, ExternalLink } from 'lucide-react';
+import { ProjectLogo } from "@/components/ProjectLogo";
+import { ArrowRight, Layers, Code2, Users, Rocket, BookOpen, GraduationCap, ExternalLink } from 'lucide-react';
 import LightRays from '../components/LightRays';
 
 import { Sparkles } from '../components/animate-ui/icons/sparkles';
@@ -24,12 +24,25 @@ import {Particles} from "@/components/ui/particles.tsx";
 import {TopographyBackground} from "@/components/ui/topography.tsx";
 
 import { m } from '@/paraglide/messages';
+import {useAuth} from "@/hooks/use-auth.tsx";
 
 export const Route = createFileRoute('/')({ component: App })
 
 function App() {
 
-  return (
+    const { data: user, isLoading } = useAuth();
+
+    const baseURL = import.meta.env.VITE_API_URL;
+
+
+    const handleLogin = () => {
+
+        window.location.href = `${baseURL}/auth/login`;
+    }
+
+
+
+    return (
     <div className="min-h-screen bg-background overflow-hidden">
       {/* Hero Section - Simplified */}
       <section className="relative py-32 md:py-20">
@@ -87,14 +100,17 @@ function App() {
             </p>
           </div>
 
+
           {/* Service cards - Large, accessible */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+
             {[
               {
                 name: m.service_kauindex_name(),
                 tagline: m.service_kauindex_tagline(),
                 desc: m.service_kauindex_desc(),
-                icon: Search,
+                icon: () => <ProjectLogo projectName="kindex" projectId="kindex" />,
                 status: m.status_live(),
                 statusKey: 'Live',
                 link: 'https://kauindex.com',
@@ -104,7 +120,7 @@ function App() {
                 name: m.service_kauplanner_name(),
                 tagline: m.service_kauplanner_tagline(),
                 desc: m.service_kauplanner_desc(),
-                icon: Calendar,
+                icon: () => <ProjectLogo projectName="kplanner" projectId="kplanner" />,
                 status: m.status_live(),
                 statusKey: 'Live',
                 link: 'https://kauindex.com/planner',
@@ -114,7 +130,7 @@ function App() {
                 name: m.service_kaugroups_name(),
                 tagline: m.service_kaugroups_tagline(),
                 desc: m.service_kaugroups_desc(),
-                icon: Users,
+                icon: () => <ProjectLogo projectName="kgroups" projectId="kgroups" />,
                 status: m.status_beta(),
                 statusKey: 'Beta',
                 link: '#',
@@ -369,59 +385,63 @@ function App() {
           </div>
 
           {/* Central Value Proposition, will be used and added for the login sign in page */}
-          <div className="max-w-5xl mx-auto">
-            <div className="relative p-12 bg-background from-card/90 to-card/60 backdrop-blur-xl border-2 border-primary/30 rounded-3xl shadow-2xl shadow-primary/10">
 
-              <div className="relative">
-                <div className="text-center mb-8">
-                  <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary/30 to-accent/30 rounded-2xl mb-6 shadow-lg shadow-primary/20">
-                    <Layers className="w-10 h-10 text-primary drop-shadow-[0_0_16px_rgba(0,255,136,0.6)]" />
-                  </div>
-                  <h3 className="text-3xl font-bold mb-4">{m.sso_title()}</h3>
-                  <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                    {m.sso_subtitle()}
-                  </p>
-                </div>
+            {!user && <div className="max-w-5xl mx-auto">
+                <div className="relative p-12 bg-background from-card/90 to-card/60 backdrop-blur-xl border-2 border-primary/30 rounded-3xl shadow-2xl shadow-primary/10">
 
-                {/* Visual representation */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {[
-                    { name: m.service_kauindex_name(), icon: Search },
-                    { name: m.service_kauplanner_name(), icon: Calendar },
-                    { name: m.service_kaugroups_name(), icon: Users },
-                    { name: m.sso_more(), icon: Sparkles },
-                  ].map((service, index) => (
-                    <div
-                      key={index}
-                      className="p-4 bg-card/80 border border-primary/20 rounded-xl text-center hover:border-primary/40 transition-all"
-                    >
-                      <service.icon className="w-6 h-6 text-primary mx-auto mb-2" />
-                      <p className="text-sm font-medium">{service.name}</p>
+                    <div className="relative">
+                        <div className="text-center mb-8">
+                            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary/30 to-accent/30 rounded-2xl mb-6 shadow-lg shadow-primary/20">
+
+
+                               <ProjectLogo projectId={'kstack'} projectName={'kstack'} tailwind="scale-120" />
+
+                            </div>
+                            <h3 className="text-3xl font-bold mb-4">{m.sso_title()}</h3>
+                            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                                {m.sso_subtitle()}
+                            </p>
+                        </div>
+
+                        {/* Visual representation */}
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            {[
+                                { name: m.service_kauindex_name(), icon: () => <ProjectLogo projectName="kindex" projectId="kindex" />  },
+                                { name: m.service_kauplanner_name(), icon: () => <ProjectLogo projectName="kplanner" projectId="kplanner" /> },
+                                { name: m.service_kaugroups_name(), icon:() => <ProjectLogo projectName="kgroups" projectId="kgroups" /> },
+                                { name: m.sso_more(), icon: Sparkles },
+                            ].map((service, index) => (
+                                <div
+                                    key={index}
+                                    className="p-4 flex flex-col items-center justify-center gap-2 bg-card/80 border border-primary/20 rounded-xl text-center hover:border-primary/40 transition-all"
+                                >
+                                    <service.icon className="w-6 h-6 text-primary mx-auto mb-2" />
+                                    <p className="text-sm font-medium">{service.name}</p>
+                                </div>
+                            ))}
+                        </div>
+
+
+                        <div className="flex justify-center items-center mt-12 w-full gap-10">
+                            <button
+                                onClick={() => {
+                                    handleLogin();
+                                }}
+                                aria-label="Scroll to Developers section"
+                                className="px-8 py-4 bg-accent text-accent-foreground rounded-sm hover:scale-105 transition-all duration-300 flex items-center gap-3 shadow-lg whitespace-nowrap cursor-pointer"
+                            >
+                                <span className="font-semibold">{m.sso_login()} </span>
+                                <LogIn className="w-5 h-5" />
+                            </button>
+                        </div>
+
                     </div>
-                  ))}
+
                 </div>
 
+            </div> }
+                </div>
 
-                  <div className="flex justify-center items-center mt-12 w-full gap-10">
-                      <button
-                          onClick={() => {
-                              const el = document.getElementById('developers');
-                              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                          }}
-                          aria-label="Scroll to Developers section"
-                          className="px-8 py-4 bg-accent text-accent-foreground rounded-sm hover:scale-105 transition-all duration-300 flex items-center gap-3 shadow-lg whitespace-nowrap cursor-pointer"
-                      >
-                          <span className="font-semibold">{m.sso_login()} </span>
-                          <LogIn className="w-5 h-5" />
-                      </button>
-                  </div>
-
-              </div>
-
-            </div>
-
-          </div>
-        </div>
       </section>
       {/* For Developers Section - Epic */}
       <section id='developers' className="relative py-32 border-t border-primary/10 bg-gradient-to-b from-transparent via-accent/5 to-transparent">
@@ -447,8 +467,8 @@ function App() {
                 {m.section_dev_subtitle()}
               </p>
 
-              <div className='inline-flex gap-6'>
-                <button className="px-8 py-4 bg-primary text-primary-foreground rounded-sm hover:scale-105 transition-all duration-300 flex items-center gap-3 cursor-pointer">
+              <div className='inline-flex gap-6 text-sm'>
+                <button className="px-4  bg-primary text-primary-foreground rounded-sm hover:scale-105 transition-all duration-300 flex items-center gap-3 cursor-pointer">
                   <span className="font-semibold">{m.action_contact_us()}</span>
                   <Send className="w-5 h-5" />
                 </button>
@@ -516,12 +536,11 @@ function App() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-8">
             {/* Brand */}
             <div className="flex items-center gap-3">
-						{<img
-							src="/kaustack_logo.svg"
-							alt="KAU Logo"
-							className="h-12 w-12 object-contain transition-transform group-hover:scale-105"
-						/>}
-              <div>
+
+                <ProjectLogo projectId={'kstack'} projectName={'kstack'}/>
+
+
+                <div>
                 <div className="font-bold text-xl">{m.footer_brand()}</div>
                 <div className="text-xs text-muted-foreground">{m.footer_brand_subtitle()}</div>
               </div>
