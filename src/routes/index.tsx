@@ -16,9 +16,9 @@ import {
 
 } from 'lucide-react'
 import { ProjectLogo } from "@/components/ProjectLogo";
-import { ArrowRight, Layers, Code2, Users, Rocket, BookOpen, GraduationCap, ExternalLink } from 'lucide-react';
+import { ArrowRight, Layers, Code2, Users, Rocket, GraduationCap, ExternalLink } from 'lucide-react';
 import LightRays from '../components/LightRays';
-
+import MagicRings from '../components/MagicRings';
 import { Sparkles } from '../components/animate-ui/icons/sparkles';
 import {Particles} from "@/components/ui/particles.tsx";
 import {TopographyBackground} from "@/components/ui/topography.tsx";
@@ -60,7 +60,7 @@ function App() {
             distortion={0}
             className="custom-rays"
             pulsating={false}
-            fadeDistance={1}
+            fadeDistance={5}
             saturation={1.1}
           />
         </div>
@@ -101,77 +101,86 @@ function App() {
           </div>
 
 
-          {/* Service cards - Large, accessible */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Service cards - Large, accessible */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
 
-            {[
-              {
-                name: m.service_kauindex_name(),
-                tagline: m.service_kauindex_tagline(),
-                desc: m.service_kauindex_desc(),
-                icon: () => <ProjectLogo projectName="kindex" projectId="kindex" />,
-                status: m.status_live(),
-                statusKey: 'Live',
-                link: 'https://kauindex.com',
-                color: 'primary',
-              },
-              {
-                name: m.service_kauplanner_name(),
-                tagline: m.service_kauplanner_tagline(),
-                desc: m.service_kauplanner_desc(),
-                icon: () => <ProjectLogo projectName="kplanner" projectId="kplanner" />,
-                status: m.status_live(),
-                statusKey: 'Live',
-                link: 'https://kauindex.com/planner',
-                color: 'accent',
-              },
-              {
-                name: m.service_kaugroups_name(),
-                tagline: m.service_kaugroups_tagline(),
-                desc: m.service_kaugroups_desc(),
-                icon: () => <ProjectLogo projectName="kgroups" projectId="kgroups" />,
-                status: m.status_beta(),
-                statusKey: 'Beta',
-                link: '#',
-                color: 'primary',
-              },
+                {[
+                    {
+                        name: m.service_kauindex_name(),
+                        tagline: m.service_kauindex_tagline(),
+                        desc: m.service_kauindex_desc(),
+                        icon: () => <ProjectLogo projectName="kindex" projectId="kindex"/>,
+                        status: m.status_live(),
+                        statusKey: 'Live',
+                        link: 'https://kauindex.com',
+                        color: 'primary',
+                    },
+                    {
+                        name: m.service_kauplanner_name(),
+                        tagline: m.service_kauplanner_tagline(),
+                        desc: m.service_kauplanner_desc(),
+                        icon: () => <ProjectLogo projectName="kplanner" projectId="kplanner"/>,
+                        status: m.status_live(),
+                        statusKey: 'Live',
+                        link: 'https://kauindex.com/planner',
+                        color: 'accent',
+                    },
+                    {
+                        name: m.service_kaugroups_name(),
+                        tagline: m.service_kaugroups_tagline(),
+                        desc: m.service_kaugroups_desc(),
+                        icon: () => <ProjectLogo projectName="kgroups" projectId="kgroups"/>,
+                        status: m.status_beta(),
+                        statusKey: 'Beta',
+                        link: 'https://groups.kstacks.org',
+                        color: 'primary',
+                    },
+                    {
+                        name: m.service_kaugrades_name(),
+                        tagline: m.service_kaugrades_tagline(),
+                        desc: m.service_kaugrades_desc(),
+                        icon: () => <ProjectLogo projectName="KGPA" projectId="KGPA"/>,
+                        status: m.status_beta(),
+                        statusKey: 'Beta',
+                        link: 'https://fcit-calc.y-tools.xyz/',
+                        color: 'primary',
+                    },
+                    {
+                        name: m.service_kaudevs_name(),
+                        tagline: m.service_kaudevs_tagline(),
+                        desc: m.service_kaudevs_desc(),
+                        icon: () => <ProjectLogo projectName="kdevs" projectId="kdevs"/>,
+                        status: m.status_coming_soon(),
+                        statusKey: 'Coming Soon',
+                        link: '#',
+                        color: 'primary',
+                    },
 
-              {
-                name: m.service_kaudevs_name(),
-                tagline: m.service_kaudevs_tagline(),
-                desc: m.service_kaudevs_desc(),
-                icon: Code2,
-                status: m.status_coming_soon(),
-                statusKey: 'Coming Soon',
-                link: '#',
-                color: 'primary',
-              },
-
-              {
-                name: m.service_kausubjects_name(),
-                tagline: m.service_kausubjects_tagline(),
-                desc: m.service_kausubjects_desc(),
-                icon: BookOpen,
-                status: m.status_coming_soon(),
-                statusKey: 'Coming Soon',
-                link: '#',
-                color: 'primary',
-              },
-            ].map((service, index) => (
-              <a
-                key={index}
-                href={service.link}
-                className={`group relative block p-8 bg-card from-card/90 to-card/70 backdrop-blur-xl border-2 border-primary/20 rounded-sm hover:border-primary/50 hover:scale-[1.02] transition-all duration-300 shadow-xl hover:shadow-primary/20 ${
-  service.statusKey === 'Live'
-    ? 'border-primary/40 hover:border-primary/60'
-    : service.statusKey === 'Beta'
-    ? 'border-primary/40 hover:border-accent/60'
-    : service.statusKey === 'Coming Soon'
-    ? 'border-dashed border-muted/30 opacity-95'
-    : ''
-}`}
-              >
+                    {
+                        name: m.service_kausubjects_name(),
+                        tagline: m.service_kausubjects_tagline(),
+                        desc: m.service_kausubjects_desc(),
+                        icon: () => <ProjectLogo projectName="ksubjects" projectId="ksubjects"/>,
+                        status: m.status_coming_soon(),
+                        statusKey: 'Coming Soon',
+                        link: '#',
+                        color: 'primary',
+                    }
+                ].map((service, index) => (
+                    <a
+                        key={index}
+                        href={service.link}
+                        className={`group relative block p-8 bg-card from-card/90 to-card/70 backdrop-blur-xl border-2 border-primary/20 rounded-sm hover:border-primary/50 hover:scale-[1.02] transition-all duration-300 shadow-xl hover:shadow-primary/20 ${
+                            service.statusKey === 'Live'
+                                ? 'border-primary/40 hover:border-primary/60'
+                                : service.statusKey === 'Beta'
+                                    ? 'border-primary/40 hover:border-accent/60'
+                                    : service.statusKey === 'Coming Soon'
+                                        ? 'border-dashed border-muted/30 opacity-95'
+                                        : ''
+                        }`}
+                    >
 
                 <div className="relative">
                   {/* Status badge */}
@@ -310,11 +319,34 @@ function App() {
       {/* Solution Section - Mind Blowing */}
       <section className=" relative py-32 border-t border-primary/10">
 
-          <TopographyBackground
-              className="absolute inset-0 z-0 pointer-events-none hidden dark:absolute dark:block"
-              lineColor="#001a0d"
-              backgroundColor="#000000"
+          <div className="hidden md:block">
+          <div className="absolute inset-0 hidden dark:block">
+          <MagicRings
+              color="#9a9996"
+              colorTwo="#26a269"
+              ringCount={2}
+              speed={1}
+              attenuation={30}
+              lineThickness={4.5}
+              baseRadius={0.45}
+              radiusStep={0.06}
+              scaleRate={0.05}
+              opacity={0.75}
+              blur={0}
+              noiseAmount={0}
+              rotation={0}
+              ringGap={1.5}
+              fadeIn={0.7}
+              fadeOut={0.5}
+              followMouse={false}
+              mouseInfluence={0}
+              hoverScale={1}
+              parallax={0.05}
+              clickBurst={false}
           />
+              </div>
+          </div>
+
 
         <div className="relative max-w-7xl mx-auto px-6">
 
@@ -450,7 +482,7 @@ function App() {
         <div className="relative max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 px-5 py-2 bg-accent/20 border border-accent/40 rounded-full mb-8">
+              <div className="inline-flex items-center gap-2 px-5 py-2 bg-accent/20 border border-accent/40 rounded mb-8">
                 <Code2 className="w-4 h-4 text-primary" />
                 <span className="text-sm font-semibold uppercase tracking-wide">{m.section_dev_badge()}</span>
               </div>

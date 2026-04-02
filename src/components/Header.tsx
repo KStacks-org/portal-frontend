@@ -74,7 +74,7 @@ export function Header() {
                 </div>
 
                 {isLoading ? (
-                    <div className="h-9 w-20 animate-pulse bg-muted rounded-sm" />
+                    <div className="h-9 w-20 animate-pulse bg-muted rounded" />
                 ) : user ? (
                     // User is logged in
                     <div className="flex items-center gap-4">
@@ -88,7 +88,7 @@ export function Header() {
                     </div>
                 ) : (
                     // User is not logged in
-                    <Button onClick={handleLogin} className="flex items-center gap-3 rounded-sm cursor-pointer">
+                    <Button onClick={handleLogin} className="flex items-center gap-3 rounded cursor-pointer">
                         <LogIn className="h-4 w-4" />
                         <span>{m.header_login()}</span>
                     </Button>

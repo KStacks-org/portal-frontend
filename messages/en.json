@@ -30,12 +30,15 @@
   "service_kausubjects_name": "Subjects",
   "service_kausubjects_tagline": "Subject Explorer",
   "service_kausubjects_desc": "Explore subjects, rate, and review them with the community",
+  "service_kaugrades_name": "Grades",
+  "service_kaugrades_tagline": "GPA Calculator",
+  "service_kaugrades_desc": "Calculate your semester and cumulative GPA to track your academic performance",
 
   "status_live": "Live",
   "status_beta": "Beta",
   "status_coming_soon": "Coming Soon",
   "action_open_service": "Open Service",
-  "action_launching_soon": "Launching Soon",
+  "action_launching_soon": "Under Development",
 
   "section_powered_title": "Powered by KStack",
   "section_powered_subtitle": "Student projects sponsored and supported by our infrastructure",
@@ -51,7 +54,7 @@
   "project_grade_author": "Math Society",
   "project_yours_name": "Your Project Here",
   "project_yours_desc": "The stack is incomplete without you. Build the next essential tool and claim this spot.",
-  "project_yours_author": "???",
+  "project_yours_author": "You",
 
   "by_author": "by {author}",
 
@@ -62,7 +65,7 @@
   "section_solution_title_prefix": "The only",
   "section_solution_title_highlight": "Stack",
   "section_solution_title_suffix": "you need",
-  "section_solution_subtitle": "Open source by design. Student-first by mission. The infrastructure KAU Students deserve.",
+  "section_solution_subtitle": "Open source by design. Student-first by mission. The infrastructure students deserve.",
 
   "feature_opensource_title": "Open Source First",
   "feature_opensource_desc": "KStack is built in the open, we have nothing to hide, and everything to show, every line of code is readable, auditable, and improvable.",

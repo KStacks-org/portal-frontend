@@ -30,6 +30,9 @@
   "service_kausubjects_name": "Subjects",
   "service_kausubjects_tagline": "مستكشف المواد",
   "service_kausubjects_desc": "استكشف المواد الدراسية وقيّمها وراجعها مع المجتمع",
+  "service_kaugrades_name": "Grades",
+  "service_kaugrades_tagline": "حاسبة المعدل",
+  "service_kaugrades_desc": "احسب معدلك الفصلي والتراكمي لتتبع أدائك الأكاديمي",
 
   "status_live": "متاح",
   "status_beta": "تجريبي",
@@ -51,7 +54,7 @@
   "project_grade_author": "جمعية الرياضيات",
   "project_yours_name": "مشروعك هنا",
   "project_yours_desc": "المنصة غير مكتملة بدونك. ابنِ الأداة الأساسية التالية واحجز مكانك.",
-  "project_yours_author": "؟؟؟",
+  "project_yours_author": "مطور",
 
   "by_author": "بواسطة {author}",
 
@@ -62,7 +65,7 @@
   "section_solution_title_prefix": "المنصة",
   "section_solution_title_highlight": "الوحيدة",
   "section_solution_title_suffix": "التي تحتاجها",
-  "section_solution_subtitle": "مفتوح المصدر بالتصميم. الطلاب أولاً بالمهمة. البنية التحتية التي يستحقها طلاب جامعة الملك عبدالعزيز.",
+  "section_solution_subtitle": "مفتوح المصدر بالتصميم. الطلاب أولاً بالمهمة. البنية التحتية التي يستحقها الطلاب.",
 
   "feature_opensource_title": "مفتوح المصدر أولاً",
   "feature_opensource_desc": "KStack مبني بشفافية، ليس لدينا ما نخفيه ولدينا كل شيء لنظهره، كل سطر كود قابل للقراءة والمراجعة والتحسين.",
