@@ -142,7 +142,7 @@ function App() {
                         desc: m.service_kaugrades_desc(),
                         icon: () => <ProjectLogo projectName="KGPA" projectId="KGPA"/>,
                         status: m.status_beta(),
-                        statusKey: 'Beta',
+                        statusKey: 'Live',
                         link: 'https://fcit-calc.y-tools.xyz/',
                         color: 'primary',
                     },
@@ -488,9 +488,7 @@ function App() {
               </div>
 
               <h2 className="text-5xl font-bold mb-6 leading-tight">
-                {m.section_dev_title_line1()}
-                <br />
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                {m.section_dev_title_line1()} {/* <br /> */}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                   {m.section_dev_title_line2()}
                 </span>
               </h2>
