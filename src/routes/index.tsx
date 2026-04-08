@@ -143,7 +143,7 @@ function App() {
                         icon: () => <ProjectLogo projectName="KGPA" projectId="KGPA"/>,
                         status: m.status_beta(),
                         statusKey: 'Live',
-                        link: 'https://fcit-calc.y-tools.xyz/',
+                        link: 'https://grades.kstacks.org',
                         color: 'primary',
                     },
                     {
@@ -240,14 +240,14 @@ function App() {
                 link: 'http://schedly.y-tools.xyz/',
                 isPlaceholder: false,
               },
-              {
-                name: m.project_gpa_name(),
-                desc: m.project_gpa_desc(),
-                author: m.project_gpa_author(),
-                icon: Calculator,
-                link: 'https://fcit-calc.y-tools.xyz/',
-                isPlaceholder: false,
-              },
+              // {
+              //   name: m.project_gpa_name(),
+              //   desc: m.project_gpa_desc(),
+              //   author: m.project_gpa_author(),
+              //   icon: Calculator,
+              //   link: 'https://fcit-calc.y-tools.xyz/',
+              //   isPlaceholder: false,
+              // },
               {
                 name: m.project_grade_name(),
                 desc: m.project_grade_desc(),
