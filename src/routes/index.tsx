@@ -142,8 +142,8 @@ function App() {
                         desc: m.service_kaugrades_desc(),
                         icon: () => <ProjectLogo projectName="KGPA" projectId="KGPA"/>,
                         status: m.status_beta(),
-                        statusKey: 'Beta',
-                        link: 'https://fcit-calc.y-tools.xyz/',
+                        statusKey: 'Live',
+                        link: 'https://grades.kstacks.org',
                         color: 'primary',
                     },
                     {
@@ -240,14 +240,14 @@ function App() {
                 link: 'http://schedly.y-tools.xyz/',
                 isPlaceholder: false,
               },
-              {
-                name: m.project_gpa_name(),
-                desc: m.project_gpa_desc(),
-                author: m.project_gpa_author(),
-                icon: Calculator,
-                link: 'https://fcit-calc.y-tools.xyz/',
-                isPlaceholder: false,
-              },
+              // {
+              //   name: m.project_gpa_name(),
+              //   desc: m.project_gpa_desc(),
+              //   author: m.project_gpa_author(),
+              //   icon: Calculator,
+              //   link: 'https://fcit-calc.y-tools.xyz/',
+              //   isPlaceholder: false,
+              // },
               {
                 name: m.project_grade_name(),
                 desc: m.project_grade_desc(),
@@ -488,9 +488,7 @@ function App() {
               </div>
 
               <h2 className="text-5xl font-bold mb-6 leading-tight">
-                {m.section_dev_title_line1()}
-                <br />
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                {m.section_dev_title_line1()} {/* <br /> */}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                   {m.section_dev_title_line2()}
                 </span>
               </h2>
