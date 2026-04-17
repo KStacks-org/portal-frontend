@@ -319,35 +319,6 @@ function App() {
       {/* Solution Section - Mind Blowing */}
       <section className=" relative py-32 border-t border-primary/10">
 
-          <div className="hidden md:block">
-          <div className="absolute inset-0 hidden dark:block">
-          <MagicRings
-              color="#9a9996"
-              colorTwo="#26a269"
-              ringCount={2}
-              speed={1}
-              attenuation={30}
-              lineThickness={4.5}
-              baseRadius={0.45}
-              radiusStep={0.06}
-              scaleRate={0.05}
-              opacity={0.75}
-              blur={0}
-              noiseAmount={0}
-              rotation={0}
-              ringGap={1.5}
-              fadeIn={0.7}
-              fadeOut={0.5}
-              followMouse={false}
-              mouseInfluence={0}
-              hoverScale={1}
-              parallax={0.05}
-              clickBurst={false}
-          />
-              </div>
-          </div>
-
-
         <div className="relative max-w-7xl mx-auto px-6">
 
           <div className="text-center max-w-4xl mx-auto mb-20">
