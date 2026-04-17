@@ -9,7 +9,7 @@ import {fileURLToPath, URL} from 'url'
 import tailwindcss from '@tailwindcss/vite'
 import {nitro} from 'nitro/vite'
 
-const config = defineConfig({
+const config = defineConfig(({ mode }) => ({
     resolve: {
         alias: {
             '@': fileURLToPath(new URL('./src', import.meta.url)),
@@ -20,8 +20,9 @@ const config = defineConfig({
         paraglideVitePlugin({
             project: './project.inlang',
             outdir: './src/paraglide',
-            strategy: ['url', 'cookie', 'preferredLanguage', 'baseLocale'],
-            cookieDomain: 'kstacks.org',
+            strategy: ['cookie', 'preferredLanguage', 'baseLocale'],
+            cookieDomain: mode === 'production' ? 'kstacks.org' : 'localhost',
+            cookieName: 'PARAGLIDE_LOCALE'
         }),
         nitro(),
         // this is the plugin that enables path aliases
@@ -32,6 +33,6 @@ const config = defineConfig({
         tanstackStart(),
         viteReact(),
     ],
-})
+}))
 
 export default config
