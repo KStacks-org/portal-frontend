@@ -3,9 +3,8 @@ import { LogIn, User, LogOut } from "lucide-react";
 import ThemeToggle from "./ThemeToggle"
 import LocaleSwitcher from "./LocaleSwitcher"
 import {Button} from "@/components/ui/button.tsx";
-import {useAuth} from "@/hooks/use-auth.tsx";
+import {startLogin, useAuth, useLogout} from "@/hooks/use-auth.tsx";
 import { m } from "@/paraglide/messages";
-import {useQueryClient} from "@tanstack/react-query";
 import {ProjectLogo} from "@/components/ProjectLogo.tsx";
 
 
@@ -14,31 +13,15 @@ export function Header() {
     const { data: user, isLoading } = useAuth();
     const navigate = useNavigate();
 
-    const queryClient = useQueryClient();
-    const baseURL = import.meta.env.VITE_API_URL;
-
+    const logout = useLogout();
 
     const handleLogin = () => {
-
-        window.location.href = `${baseURL}/auth/login`;
+        startLogin();
     }
 
-    // not fully figured out yet
-    const handleLogout = () => {
-
-        try {
-
-            // this currently doesn't exist, but there should be an endpoint for the service to clear JWT
-            // await fetch(`${baseURL}/auth/logout`, {method: 'POST', credentials: 'include'});
-
-
-            queryClient.setQueryData(['auth-user'], null)
-            void navigate({to: "/"});
-        }
-        catch (e) {
-            console.error("Error logging in: ", e);
-        }
-
+    const handleLogout = async () => {
+        await logout();
+        void navigate({to: "/"});
     }
 
     return (
@@ -82,7 +65,7 @@ export function Header() {
                             <User className="h-4 w-4 shrink-0" />
                             <span className="truncate max-w-[80px] sm:max-w-[150px]">{user.name}</span>
                         </div>
-                        <Button variant="ghost" size="sm" onClick={() => {handleLogout()}}>
+                        <Button variant="ghost" size="sm" onClick={() => {void handleLogout()}}>
                             <LogOut className="h-4 w-4" />
                         </Button>
                     </div>

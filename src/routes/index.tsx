@@ -24,20 +24,16 @@ import {Particles} from "@/components/ui/particles.tsx";
 import {TopographyBackground} from "@/components/ui/topography.tsx";
 
 import { m } from '@/paraglide/messages';
-import {useAuth} from "@/hooks/use-auth.tsx";
+import {startLogin, useAuth} from "@/hooks/use-auth.tsx";
 
 export const Route = createFileRoute('/')({ component: App })
 
 function App() {
 
-    const { data: user, isLoading } = useAuth();
-
-    const baseURL = import.meta.env.VITE_API_URL;
-
+    const { data: user } = useAuth();
 
     const handleLogin = () => {
-
-        window.location.href = `${baseURL}/auth/login`;
+        startLogin();
     }
 
 
