@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - dev
   pull_request:
     branches:
       - master
@@ -52,6 +53,7 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
             type=sha,prefix=master-,format=short,enable={{is_default_branch}}
+            type=sha,prefix=dev-,format=short,enable=${{ github.ref == 'refs/heads/dev' }}
             type=sha,prefix=pr-,format=short,enable=${{ github.event_name == 'pull_request' }}
 
       - name: Set up Docker Buildx
@@ -73,7 +75,7 @@ jobs:
   update-infra:
     name: Update image tag in infra repo
     needs: build-and-push
-    # Only run on direct pushes to master (not PRs, not tags)
+    # Master only. Staging tag bumps are Argo CD Image Updater's job.
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     permissions:
@@ -87,16 +89,22 @@ jobs:
           token: ${{ secrets.INFRA_PAT }}
           path: infra
 
-      - name: Update auth-service image tag
+      - name: Update portal-frontend image tag
         run: |
           SHORT_SHA="${GITHUB_SHA::7}"
-          NEW_IMAGE="ghcr.io/kstacks-org/portal-frontend:master-${SHORT_SHA}"
           FILE="infra/portal-frontend/deployment.yaml"
 
-          yq -i ".spec.template.spec.containers[0].image = \"${NEW_IMAGE}\"" "$FILE"
+          # After the kustomize restructure the tag lives in the prod overlay.
+          if [ -f infra/overlays/prod/kustomization.yaml ]; then
+            FILE="infra/overlays/prod/kustomization.yaml"
+            yq -i "(.images[] | select(.name == \"ghcr.io/kstacks-org/portal-frontend\")).newTag = \"master-${SHORT_SHA}\"" "$FILE"
+          else
+            NEW_IMAGE="ghcr.io/kstacks-org/portal-frontend:master-${SHORT_SHA}"
+            yq -i ".spec.template.spec.containers[0].image = \"${NEW_IMAGE}\"" "$FILE"
+          fi
 
-          echo "Updated image to: ${NEW_IMAGE}"
-          yq '.spec.template.spec.containers[0].image' "$FILE"
+          echo "Updated ${FILE} to master-${SHORT_SHA}"
+          echo "FILE=${FILE#infra/}" >> "$GITHUB_ENV"
 
       - name: Commit and push changes
         run: |
@@ -104,7 +112,7 @@ jobs:
           cd infra
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add portal-frontend/deployment.yaml
+          git add "$FILE"
           git diff --cached --quiet && echo "No changes to commit" && exit 0
           git commit -m "chore(portal-frontend): bump image to master-${SHORT_SHA}"
           git push
