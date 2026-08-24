@@ -1,42 +1,58 @@
 import { createFileRoute } from '@tanstack/react-router'
 import {
-    Zap,
-    SaudiRiyal,
-    Download,
     GitBranch,
-    RefreshCw,
-    KeyRound,
-    Cloudy,
-    TrendingUp,
-    Megaphone,
     Sigma,
-    Calculator,
     Plus,
-    LogIn, Send,
+  Spotlight,
 
 } from 'lucide-react'
 import { ProjectLogo } from "@/components/ProjectLogo";
-import { ArrowRight, Layers, Code2, Users, Rocket, GraduationCap, ExternalLink } from 'lucide-react';
+import { ArrowRight, Layers, GraduationCap, ExternalLink } from 'lucide-react';
 import LightRays from '../components/LightRays';
-import MagicRings from '../components/MagicRings';
 import { Sparkles } from '../components/animate-ui/icons/sparkles';
 import {Particles} from "@/components/ui/particles.tsx";
-import {TopographyBackground} from "@/components/ui/topography.tsx";
 
 import { m } from '@/paraglide/messages';
-import {startLogin, useAuth} from "@/hooks/use-auth.tsx";
+
+// Imports below belong to the disabled Solution / For Developers sections at the
+// bottom of this file. Uncomment them together with the sections themselves.
+// import { SaudiRiyal, Download, RefreshCw, KeyRound, Cloudy, TrendingUp, Megaphone, LogIn, Send, Code2, Users, Rocket } from 'lucide-react';
+// import { TopographyBackground } from "@/components/ui/topography.tsx";
+// import { startLogin, useAuth } from "@/hooks/use-auth.tsx";
+
+/** GitHub, X and WhatsApp marks. Brand logos aren't in lucide, and mixing a
+ *  stroked lucide glyph with filled brand marks reads as a weight mismatch. */
+function GithubMark({ className }: { className?: string }) {
+    return (
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+            <path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.4 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3" />
+        </svg>
+    );
+}
+
+function XMark({ className }: { className?: string }) {
+    return (
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+            <path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.5L6.3 22H3.2l7.3-8.3L2.8 2h6.4l4.5 5.9zm-1.1 18.2h1.7L8.3 3.7H6.5z" />
+        </svg>
+    );
+}
+
+function WhatsAppMark({ className }: { className?: string }) {
+    return (
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+            <path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4-.1-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.4-4.5-1.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2" />
+        </svg>
+    );
+}
+
+// Set this once the WhatsApp community actually exists. While it is empty the
+// link is not rendered at all, so the page never ships a dead "#" href.
+const WHATSAPP_INVITE_URL: string = ''
 
 export const Route = createFileRoute('/')({ component: App })
 
 function App() {
-
-    const { data: user } = useAuth();
-
-    const handleLogin = () => {
-        startLogin();
-    }
-
-
 
     return (
     <div className="min-h-screen bg-background overflow-hidden">
@@ -68,10 +84,14 @@ function App() {
 
           {/* Main headline with glow effect */}
           <div className="text-center max-w-5xl mx-auto mb-8">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1] tracking-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1] rtl:leading-[1.4] tracking-tight rtl:tracking-normal">
               {m.hero_title_line1()}
               <br />
-              <span className="bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(0,255,136,0.3)]">
+              {/* bg-clip-text paints the gradient over the inline box and clips it to the
+                  glyphs, so Arabic descenders (the two dots under a final ي) fall outside
+                  it and go unpainted. inline-block + padding-bottom grows that box; the
+                  matching negative margin keeps the extra height out of the layout. */}
+              <span className="bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(0,255,136,0.3)] rtl:inline-block rtl:pb-[0.4em] rtl:-mb-[0.4em]">
                 {m.hero_title_highlight()}
               </span>
             </h1>
@@ -119,7 +139,7 @@ function App() {
                         icon: () => <ProjectLogo projectName="kplanner" projectId="kplanner"/>,
                         status: m.status_live(),
                         statusKey: 'Live',
-                        link: 'https://kauindex.com/planner',
+                        link: 'https://planner.kstacks.org',
                         color: 'accent',
                     },
                     {
@@ -217,7 +237,7 @@ function App() {
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
-              <Zap className="w-8 h-8 text-accent drop-shadow-[0_0_12px_rgba(10,77,46,0.5)]" />
+              <Spotlight className="w-8 h-8 text-accent drop-shadow-[0_0_12px_rgba(10,77,46,0.5)] rtl:-scale-x-100" />
               <h2 className="text-3xl md:text-4xl font-bold">{m.section_powered_title()}</h2>
             </div>
             <p className="text-lg text-muted-foreground">
@@ -244,14 +264,6 @@ function App() {
               //   link: 'https://fcit-calc.y-tools.xyz/',
               //   isPlaceholder: false,
               // },
-              {
-                name: m.project_grade_name(),
-                desc: m.project_grade_desc(),
-                author: m.project_grade_author(),
-                icon: GraduationCap,
-                link: '#',
-                isPlaceholder: false,
-              },
               {
                 name: m.project_yours_name(),
                 desc: m.project_yours_desc(),
@@ -288,210 +300,137 @@ function App() {
             ))}
           </div>
 
-          {/* Call to action for developers */}
-          <div className="mt-12 p-8 bg-gradient-to-r from-accent/10 to-primary/10 backdrop-blur-xl border border-accent/20 rounded-sm">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-              <div>
-                <h3 className="text-2xl font-bold mb-2">{m.cta_build_title()}</h3>
-                <p className="text-muted-foreground">{m.cta_build_subtitle()}</p>
-              </div>
-              <button
-                onClick={() => {
-                  const el = document.getElementById('developers');
-                  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }}
-                aria-label="Scroll to Developers section"
-                className="px-8 py-4 bg-accent text-accent-foreground rounded-sm hover:scale-105 transition-all duration-300 flex items-center gap-3 shadow-lg whitespace-nowrap cursor-pointer"
-              >
-                <span className="font-semibold">{m.cta_read_more()} </span>
-                <Rocket className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
         </div>
       </section>
 
 
-      {/* Solution Section - Mind Blowing */}
-      <section className=" relative py-32 border-t border-primary/10">
-
-        <div className="relative max-w-7xl mx-auto px-6">
-
-          <div className="text-center max-w-4xl mx-auto mb-20">
-
-
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              {m.section_solution_title_prefix()}
-              <span className="from-primary to-accent bg-clip-text text-transparent bg-gradient-to-r mx-3">
-                {m.section_solution_title_highlight()}
-              </span>
-              {m.section_solution_title_suffix()}
-            </h2>
-
-            <p className="text-xl text-muted-foreground">
-                {m.section_solution_subtitle()}
-            </p>
-          </div>
-
-          {/* Feature List - Clean & Minimal */}
-          <div className="max-w-5xl mx-auto mb-20 space-y-8">
-            {[
-              {
-                icon: GitBranch,
-                title: m.feature_opensource_title(),
-                desc: m.feature_opensource_desc(),
-                metric: m.feature_opensource_metric(),
-              },
-              {
-                icon: SaudiRiyal,
-                title: m.feature_free_title(),
-                desc: m.feature_free_desc(),
-                metric: m.feature_free_metric(),
-              },
-              {
-                icon: RefreshCw,
-                title: m.feature_sync_title(),
-                desc: m.feature_sync_desc(),
-                metric: m.feature_sync_metric(),
-              },
-              {
-                icon: Users,
-                title: m.feature_community_title(),
-                desc: m.feature_community_desc(),
-                metric: m.feature_community_metric(),
-              },
-            ].map((feature, index) => (
-              <div
-                key={index}
-                className="group flex items-start gap-8 p-8 border-l-2 border-primary/20 hover:border-primary/60 transition-all duration-300 hover:pl-10"
-              >
-                {/* Icon */}
-                <div className="shrink-0">
-                  <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-all">
-                    <feature.icon className="w-8 h-8 text- drop-shadow-[0_0_12px_rgba(0,255,136,0.5)]" />
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="flex-1 pt-2">
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-2xl font-bold">{feature.title}</h3>
-                  </div>
-                  <p className="text-muted-foreground text-lg leading-relaxed">{feature.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Central Value Proposition, will be used and added for the login sign in page */}
-
-            {!user && <div className="max-w-5xl mx-auto">
-                <div className="relative p-12 bg-background from-card/90 to-card/60 backdrop-blur-xl border-2 border-primary/30 rounded-3xl shadow-2xl shadow-primary/10">
-
-                    <div className="relative">
-                        <div className="text-center mb-8">
-                            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary/30 to-accent/30 rounded-2xl mb-6 shadow-lg shadow-primary/20">
-
-
-                               <ProjectLogo projectId={'kstack'} projectName={'kstack'} tailwind="scale-120" />
-
-                            </div>
-                            <h3 className="text-3xl font-bold mb-4">{m.sso_title()}</h3>
-                            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                                {m.sso_subtitle()}
-                            </p>
-                        </div>
-
-                        {/* Visual representation */}
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                            {[
-                                { name: m.service_kauindex_name(), icon: () => <ProjectLogo projectName="kindex" projectId="kindex" />  },
-                                { name: m.service_kauplanner_name(), icon: () => <ProjectLogo projectName="kplanner" projectId="kplanner" /> },
-                                { name: m.service_kaugroups_name(), icon:() => <ProjectLogo projectName="kgroups" projectId="kgroups" /> },
-                                { name: m.sso_more(), icon: Sparkles },
-                            ].map((service, index) => (
-                                <div
-                                    key={index}
-                                    className="p-4 flex flex-col items-center justify-center gap-2 bg-card/80 border border-primary/20 rounded-xl text-center hover:border-primary/40 transition-all"
-                                >
-                                    <service.icon className="w-6 h-6 text-primary mx-auto mb-2" />
-                                    <p className="text-sm font-medium">{service.name}</p>
-                                </div>
-                            ))}
-                        </div>
-
-
-                        <div className="flex justify-center items-center mt-12 w-full gap-10">
-                            <button
-                                onClick={() => {
-                                    handleLogin();
-                                }}
-                                aria-label="Scroll to Developers section"
-                                className="px-8 py-4 bg-accent text-accent-foreground rounded-sm hover:scale-105 transition-all duration-300 flex items-center gap-3 shadow-lg whitespace-nowrap cursor-pointer"
-                            >
-                                <span className="font-semibold">{m.sso_login()} </span>
-                                <LogIn className="w-5 h-5" />
-                            </button>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div> }
-                </div>
-
-      </section>
-      {/* For Developers Section - Epic */}
-      <section id='developers' className="relative py-32 border-t border-primary/10 bg-gradient-to-b from-transparent via-accent/5 to-transparent">
+      {/* Who We Are - the identity statement, with receipts */}
+      <section id="who-we-are" className="relative py-20 md:py-32 border-t border-primary/10">
+        {/* Grid pattern overlay, matching the hero */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,255,136,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,255,136,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
 
-        <div className="relative max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 px-5 py-2 bg-accent/20 border border-accent/40 rounded mb-8">
-                <Code2 className="w-4 h-4 text-primary" />
-                <span className="text-sm font-semibold uppercase tracking-wide">{m.section_dev_badge()}</span>
+        <div className="relative max-w-6xl mx-auto px-5 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-start">
+
+            {/* Left: the statement. Sticky only where there is room for it. */}
+            <div className="lg:sticky lg:top-24">
+              <div className="flex items-center gap-3.5 mb-6 font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-muted-foreground rtl:normal-case rtl:tracking-normal rtl:text-xs">
+                <span>{m.whoweare_badge()}</span>
+                <span aria-hidden="true" className="flex-1 h-px bg-border" />
               </div>
 
-              <h2 className="text-5xl font-bold mb-6 leading-tight">
-                {m.section_dev_title_line1()} {/* <br /> */}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  {m.section_dev_title_line2()}
-                </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.5rem] font-bold leading-tight rtl:leading-relaxed tracking-tight rtl:tracking-normal text-balance mb-5">
+                {m.whoweare_title()}
               </h2>
 
-              <p className="text-xl text-muted-foreground mb-8">
-                {m.section_dev_subtitle()}
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-prose">
+                {m.whoweare_lead()}
               </p>
-
-              <div className='inline-flex gap-6 text-sm'>
-                <button className="px-4  bg-primary text-primary-foreground rounded-sm hover:scale-105 transition-all duration-300 flex items-center gap-3 cursor-pointer">
-                  <span className="font-semibold">{m.action_contact_us()}</span>
-                  <Send className="w-5 h-5" />
-                </button>
-
-                <a href='/KAUStack-1-1.pdf' target="_blank" rel="noopener noreferrer"
-                className="px-8 pointer-events-auto py-4 bg-foreground text-primary-foreground rounded-sm hover:scale-105 transition-all duration-300 flex items-center gap-3 cursor-pointer">
-                  <span className="font-semibold">{m.action_download_booklet()}</span>
-                  <Download className="w-5 h-5" />
-                </a>
-              </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            {/* Right: the proof */}
+            <div>
+              {/* The one claim worth emphasising, so it gets the only icon and glow */}
+              <div className="p-6 sm:p-8 mb-8 bg-card/80 backdrop-blur-xl border border-primary/30 rounded-sm shadow-xl">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-11 h-11 shrink-0 bg-primary/10 rounded-xl flex items-center justify-center">
+                    <GitBranch className="w-5 h-5 text-primary drop-shadow-[0_0_12px_rgba(0,255,136,0.5)]" />
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-semibold leading-snug rtl:leading-relaxed tabular-nums">
+                    {m.whoweare_oss_title()}
+                  </h3>
+                </div>
+                <p className="text-sm sm:text-[0.9375rem] text-muted-foreground leading-relaxed mb-5">
+                  {m.whoweare_oss_body()}
+                </p>
+                <a
+                  href="https://github.com/KStacks-org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <GithubMark className="w-4 h-4 shrink-0" />
+                  <span>{m.whoweare_oss_link()}</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
+                </a>
+              </div>
+
+              {/* The core repositories. Two lines per repo on mobile, one on sm+. */}
+              <p className="font-mono text-[0.6875rem] uppercase tracking-widest rtl:normal-case rtl:tracking-normal text-muted-foreground mb-3">
+                {m.whoweare_core_caption()}
+              </p>
+              <ul className="border-t border-border">
+                {[
+                  { repo: 'gateway-service', lang: 'Java', role: m.whoweare_repo_gateway() },
+                  { repo: 'auth-service', lang: 'Java', role: m.whoweare_repo_auth() },
+                  { repo: 'genderize-service', lang: 'Python', role: m.whoweare_repo_genderize() },
+                  { repo: 'portal-frontend', lang: 'TypeScript', role: m.whoweare_repo_portal() },
+                  { repo: 'infra', lang: 'Argo CD', role: m.whoweare_repo_infra() },
+                ].map((r) => (
+                  <li
+                    key={r.repo}
+                    className="grid grid-cols-[1fr_auto] sm:grid-cols-[auto_auto_1fr] gap-x-4 gap-y-1 items-baseline py-3 border-b border-border hover:bg-foreground/[0.02] transition-colors"
+                  >
+                    <span className="font-mono text-[0.8125rem] text-foreground">{r.repo}</span>
+                    <span className="font-mono text-xs text-primary justify-self-end sm:justify-self-start whitespace-nowrap">
+                      {r.lang}
+                    </span>
+                    <span className="col-span-2 sm:col-span-1 text-[0.8125rem] text-muted-foreground">
+                      {r.role}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <p className="mt-5 p-4 border border-border rounded-sm bg-foreground/[0.015] text-[0.8125rem] sm:text-sm text-muted-foreground leading-relaxed">
+                {m.whoweare_k8s()}{' '}
+                <span className="text-foreground font-medium">{m.whoweare_k8s_emphasis()}</span>
+              </p>
+            </div>
+          </div>
+
+          {/* Everything else, stated plainly. No cards, no icons. */}
+          <div className="mt-14 lg:mt-20 pt-8 border-t border-border">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
               {[
-                { icon: Cloudy, label: m.dev_hosting_label(), desc: m.dev_hosting_desc() },
-                { icon: KeyRound, label: m.dev_auth_label(), desc: m.dev_auth_desc() },
-                { icon: TrendingUp, label: m.dev_skill_label(), desc: m.dev_skill_desc() },
-                { icon: Megaphone, label: m.dev_audience_label(), desc: m.dev_audience_desc() },
-              ].map((feature, index) => (
-                <div key={index} className="p-8 bg-card/80 backdrop-blur-xl border border-primary/20 rounded-sm hover:border-primary/40 hover:scale-105 transition-all duration-300 shadow-lg">
-                  <feature.icon className="w-10 h-10 text-primary mb-4 drop-shadow-[0_0_12px_rgba(0,255,136,0.4)]" />
-                  <h3 className="text-lg font-semibold mb-1">{feature.label}</h3>
-                  <p className="text-md text-muted-foreground">{feature.desc}</p>
+                { label: m.whoweare_lang_label(), body: m.whoweare_lang_body(), links: false },
+                { label: m.whoweare_auth_label(), body: m.whoweare_auth_body(), links: false },
+                { label: m.whoweare_public_label(), body: m.whoweare_public_body(), links: true },
+              ].map((pt) => (
+                <div key={pt.label}>
+                  <h3 className="font-mono text-[0.6875rem] uppercase tracking-widest rtl:normal-case rtl:tracking-normal text-primary mb-2.5">
+                    {pt.label}
+                  </h3>
+                  <p className="text-[0.9375rem] text-muted-foreground leading-relaxed">{pt.body}</p>
+                  {pt.links && (
+                    <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-3">
+                      <a
+                        href="https://x.com/KStacksOrg"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        <XMark className="w-4 h-4 shrink-0" />
+                        <span>@KStacksOrg</span>
+                      </a>
+                      {WHATSAPP_INVITE_URL && (
+                        <a
+                          href={WHATSAPP_INVITE_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          <WhatsAppMark className="w-4 h-4 shrink-0" />
+                          <span>{m.whoweare_link_whatsapp()}</span>
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
+
+
           </div>
         </div>
       </section>
@@ -550,10 +489,10 @@ function App() {
 
             {/* Social links */}
             <div className="flex items-center gap-6">
-              <a href="https://github.com/KAUStack" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://github.com/KStacks-org" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 {m.footer_github()}
               </a>
-              <a href="https://x.com/KauIndex" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://x.com/KStacksOrg" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 {m.footer_twitter()}
               </a>
             </div>
@@ -569,3 +508,223 @@ function App() {
     </div>
   );
 }
+
+/* ------------------------------------------------------------------
+ * DISABLED 2026-08-24 — the previous "Solution" and "For Developers"
+ * sections, replaced by the "Who We Are" section above. Kept verbatim
+ * rather than deleted. To restore: uncomment the block below, move it
+ * back inside App()'s JSX, and uncomment the matching imports at the
+ * top of this file. Note the old Solution section also contained the
+ * SSO / login card, which went out of the live page with it.
+ * ------------------------------------------------------------------ */
+//       {/* Solution Section - Mind Blowing */}
+//       <section className=" relative py-32 border-t border-primary/10">
+// 
+//         <div className="relative max-w-7xl mx-auto px-6">
+// 
+//           <div className="text-center max-w-4xl mx-auto mb-20">
+// 
+// 
+//             <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+//               {m.section_solution_title_prefix()}
+//               <span className="from-primary to-accent bg-clip-text text-transparent bg-gradient-to-r mx-3">
+//                 {m.section_solution_title_highlight()}
+//               </span>
+//               {m.section_solution_title_suffix()}
+//             </h2>
+// 
+//             <p className="text-xl text-muted-foreground">
+//                 {m.section_solution_subtitle()}
+//             </p>
+//           </div>
+// 
+//           {/* Feature List - Clean & Minimal */}
+//           <div className="max-w-5xl mx-auto mb-20 space-y-8">
+//             {[
+//               {
+//                 icon: GitBranch,
+//                 title: m.feature_opensource_title(),
+//                 desc: m.feature_opensource_desc(),
+//                 metric: m.feature_opensource_metric(),
+//               },
+//               {
+//                 icon: SaudiRiyal,
+//                 title: m.feature_free_title(),
+//                 desc: m.feature_free_desc(),
+//                 metric: m.feature_free_metric(),
+//               },
+//               {
+//                 icon: RefreshCw,
+//                 title: m.feature_sync_title(),
+//                 desc: m.feature_sync_desc(),
+//                 metric: m.feature_sync_metric(),
+//               },
+//               {
+//                 icon: Users,
+//                 title: m.feature_community_title(),
+//                 desc: m.feature_community_desc(),
+//                 metric: m.feature_community_metric(),
+//               },
+//             ].map((feature, index) => (
+//               <div
+//                 key={index}
+//                 className="group flex items-start gap-8 p-8 border-l-2 border-primary/20 hover:border-primary/60 transition-all duration-300 hover:pl-10"
+//               >
+//                 {/* Icon */}
+//                 <div className="shrink-0">
+//                   <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-all">
+//                     <feature.icon className="w-8 h-8 text- drop-shadow-[0_0_12px_rgba(0,255,136,0.5)]" />
+//                   </div>
+//                 </div>
+// 
+//                 {/* Content */}
+//                 <div className="flex-1 pt-2">
+//                   <div className="flex items-center justify-between mb-3">
+//                     <h3 className="text-2xl font-bold">{feature.title}</h3>
+//                   </div>
+//                   <p className="text-muted-foreground text-lg leading-relaxed">{feature.desc}</p>
+//                 </div>
+//               </div>
+//             ))}
+//           </div>
+// 
+//           {/* Central Value Proposition, will be used and added for the login sign in page */}
+// 
+//             {!user && <div className="max-w-5xl mx-auto">
+//                 <div className="relative p-12 bg-background from-card/90 to-card/60 backdrop-blur-xl border-2 border-primary/30 rounded-3xl shadow-2xl shadow-primary/10">
+// 
+//                     <div className="relative">
+//                         <div className="text-center mb-8">
+//                             <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary/30 to-accent/30 rounded-2xl mb-6 shadow-lg shadow-primary/20">
+// 
+// 
+//                                <ProjectLogo projectId={'kstack'} projectName={'kstack'} tailwind="scale-120" />
+// 
+//                             </div>
+//                             <h3 className="text-3xl font-bold mb-4">{m.sso_title()}</h3>
+//                             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+//                                 {m.sso_subtitle()}
+//                             </p>
+//                         </div>
+// 
+//                         {/* Visual representation */}
+//                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+//                             {[
+//                                 { name: m.service_kauindex_name(), icon: () => <ProjectLogo projectName="kindex" projectId="kindex" />  },
+//                                 { name: m.service_kauplanner_name(), icon: () => <ProjectLogo projectName="kplanner" projectId="kplanner" /> },
+//                                 { name: m.service_kaugroups_name(), icon:() => <ProjectLogo projectName="kgroups" projectId="kgroups" /> },
+//                                 { name: m.sso_more(), icon: Sparkles },
+//                             ].map((service, index) => (
+//                                 <div
+//                                     key={index}
+//                                     className="p-4 flex flex-col items-center justify-center gap-2 bg-card/80 border border-primary/20 rounded-xl text-center hover:border-primary/40 transition-all"
+//                                 >
+//                                     <service.icon className="w-6 h-6 text-primary mx-auto mb-2" />
+//                                     <p className="text-sm font-medium">{service.name}</p>
+//                                 </div>
+//                             ))}
+//                         </div>
+// 
+// 
+//                         <div className="flex justify-center items-center mt-12 w-full gap-10">
+//                             <button
+//                                 onClick={() => {
+//                                     handleLogin();
+//                                 }}
+//                                 aria-label="Scroll to Developers section"
+//                                 className="px-8 py-4 bg-accent text-accent-foreground rounded-sm hover:scale-105 transition-all duration-300 flex items-center gap-3 shadow-lg whitespace-nowrap cursor-pointer"
+//                             >
+//                                 <span className="font-semibold">{m.sso_login()} </span>
+//                                 <LogIn className="w-5 h-5" />
+//                             </button>
+//                         </div>
+// 
+//                     </div>
+// 
+//                 </div>
+// 
+//             </div> }
+//                 </div>
+// 
+//       </section>
+//       {/* For Developers Section - Epic */}
+//       <section id='developers' className="relative py-32 border-t border-primary/10 bg-gradient-to-b from-transparent via-accent/5 to-transparent">
+//         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,255,136,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,255,136,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+// 
+//         <div className="relative max-w-6xl mx-auto px-6">
+//           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+//             <div>
+//               <div className="inline-flex items-center gap-2 px-5 py-2 bg-accent/20 border border-accent/40 rounded mb-8">
+//                 <Code2 className="w-4 h-4 text-primary" />
+//                 <span className="text-sm font-semibold uppercase tracking-wide">{m.section_dev_badge()}</span>
+//               </div>
+// 
+//               <h2 className="text-5xl font-bold mb-6 leading-tight">
+//                 {m.section_dev_title_line1()} {/* <br /> */}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+//                   {m.section_dev_title_line2()}
+//                 </span>
+//               </h2>
+// 
+//               <p className="text-xl text-muted-foreground mb-8">
+//                 {m.section_dev_subtitle()}
+//               </p>
+// 
+//               <div className='inline-flex gap-6 text-sm'>
+//                 <button className="px-4  bg-primary text-primary-foreground rounded-sm hover:scale-105 transition-all duration-300 flex items-center gap-3 cursor-pointer">
+//                   <span className="font-semibold">{m.action_contact_us()}</span>
+//                   <Send className="w-5 h-5" />
+//                 </button>
+// 
+//                 <a href='/KAUStack-1-1.pdf' target="_blank" rel="noopener noreferrer"
+//                 className="px-8 pointer-events-auto py-4 bg-foreground text-primary-foreground rounded-sm hover:scale-105 transition-all duration-300 flex items-center gap-3 cursor-pointer">
+//                   <span className="font-semibold">{m.action_download_booklet()}</span>
+//                   <Download className="w-5 h-5" />
+//                 </a>
+//               </div>
+//             </div>
+// 
+//             <div className="grid md:grid-cols-2 gap-6">
+//               {[
+//                 { icon: Cloudy, label: m.dev_hosting_label(), desc: m.dev_hosting_desc() },
+//                 { icon: KeyRound, label: m.dev_auth_label(), desc: m.dev_auth_desc() },
+//                 { icon: TrendingUp, label: m.dev_skill_label(), desc: m.dev_skill_desc() },
+//                 { icon: Megaphone, label: m.dev_audience_label(), desc: m.dev_audience_desc() },
+//               ].map((feature, index) => (
+//                 <div key={index} className="p-8 bg-card/80 backdrop-blur-xl border border-primary/20 rounded-sm hover:border-primary/40 hover:scale-105 transition-all duration-300 shadow-lg">
+//                   <feature.icon className="w-10 h-10 text-primary mb-4 drop-shadow-[0_0_12px_rgba(0,255,136,0.4)]" />
+//                   <h3 className="text-lg font-semibold mb-1">{feature.label}</h3>
+//                   <p className="text-md text-muted-foreground">{feature.desc}</p>
+//                 </div>
+//               ))}
+//             </div>
+//           </div>
+//         </div>
+//       </section>
+
+/* ------------------------------------------------------------------
+ * DISABLED 2026-08-24 — the "Want to build with us?" call-to-action
+ * that closed the community-projects section. Kept verbatim rather
+ * than deleted. To restore: uncomment, put it back after the project
+ * card grid, and uncomment the Rocket import at the top of this file.
+ * Its button scrolled to the #who-we-are section.
+ * ------------------------------------------------------------------ */
+//           {/* Call to action for developers */}
+//           <div className="mt-12 p-8 bg-gradient-to-r from-accent/10 to-primary/10 backdrop-blur-xl border border-accent/20 rounded-sm">
+//             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+//               <div>
+//                 <h3 className="text-2xl font-bold mb-2">{m.cta_build_title()}</h3>
+//                 <p className="text-muted-foreground">{m.cta_build_subtitle()}</p>
+//               </div>
+//               <button
+//                 onClick={() => {
+//                   const el = document.getElementById('who-we-are');
+//                   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+//                 }}
+//                 aria-label="Scroll to the Who We Are section"
+//                 className="px-8 py-4 bg-accent text-accent-foreground rounded-sm hover:scale-105 transition-all duration-300 flex items-center gap-3 shadow-lg whitespace-nowrap cursor-pointer"
+//               >
+//                 <span className="font-semibold">{m.cta_read_more()} </span>
+//                 <Rocket className="w-5 h-5" />
+//               </button>
+//             </div>
+//           </div>

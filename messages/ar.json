@@ -10,7 +10,7 @@
 
   "hero_title_line1": "مرجعك",
   "hero_title_highlight": "الأكاديمي",
-  "hero_subtitle": "وصول موحد لجميع الخدمات الطلابية",
+  "hero_subtitle": "وصول موحد لجميع المشاريع الطلابية",
 
   "section_official_title": "خدماتنا الرسمية",
   "section_official_subtitle": "خدمات مبنية ومُدارة من فريق KStack",
@@ -23,10 +23,10 @@
   "service_kauplanner_desc": "ابني جدولك المثالي مع أدوات تخطيط ذكية وسهلة الاستخدام",
   "service_kaugroups_name": "Groups",
   "service_kaugroups_tagline": "مجتمعات طلابية",
-  "service_kaugroups_desc": "ابق على تواصل مع زملادك على الواتساب وابحث عن مجموعاتهم بناءً على جدولك الدراسي",
+  "service_kaugroups_desc": "ابق على تواصل مع زملائك على الواتساب وابحث عن مجموعاتهم بناءً على جدولك الدراسي",
   "service_kaudevs_name": "Devs",
-  "service_kaudevs_tagline": "موارد المطورين",
-  "service_kaudevs_desc": "تعلّم البناء على المنصة، واستعرض التوثيق، وتعلّم مجاناً",
+  "service_kaudevs_tagline": "مصادر المطورين",
+  "service_kaudevs_desc": "تعلّم البناء، وحدّ مهارتك التقنية باحدث الادوات مجاناً",
   "service_kausubjects_name": "Subjects",
   "service_kausubjects_tagline": "مستكشف المواد",
   "service_kausubjects_desc": "قيّم موادك واطلع على تجارب الطلاب السابقة",
@@ -40,8 +40,8 @@
   "action_open_service": "الانتقال للخدمة",
   "action_launching_soon": "قريباً",
 
-  "section_powered_title": "مبني باستخدام KStack",
-  "section_powered_subtitle": "مشاريع طلابية مدعومة بأدواتنا التقنية",
+  "section_powered_title": "مشاريع تستحق تسليط الضوء",
+  "section_powered_subtitle": "مشاريع طلابية تستاهل تلقي عليها نظرة",
 
   "project_schedly_name": "Schedly",
   "project_schedly_desc": "أنشئ جميع الجداول الممكنة واختر الأفضل بمساعدة الخوارزميات.",
@@ -53,7 +53,7 @@
   "project_grade_desc": "أداة حساب المعدل وتوقع الدرجات",
   "project_grade_author": "جمعية الرياضيات",
   "project_yours_name": "مشروعك",
-  "project_yours_desc": "المنصة غير مكتملة بدونك، استخدم أدواتنا التقنية في بناء مشروعك وضع بصمتك هنا.",
+  "project_yours_desc": "المنصة غير مكتملة بدونك، ضع بصمتك هنا.",
   "project_yours_author": "مبدع",
 
   "by_author": "بواسطة {author}",
@@ -101,16 +101,46 @@
   "dev_audience_label": "جمهور فوري",
   "dev_audience_desc": "ضع تطبيقك في منظومتنا وصل لآلاف الطلاب بسهولة.",
 
+  "whoweare_badge": "من نحن",
+  "whoweare_title": "فريق طلابي يبني بنيته التحتية ويشغّلها بنفسه.",
+  "whoweare_lead": "منصة واحدة تجمع كل المشاريع والخدمات الطلابية.",
+
+  "whoweare_oss_title": "مشاريعنا مفتوحة المصدر تماماً.",
+  "whoweare_oss_body": "منها البوابة، وخدمة الدخول، وإعدادات النشر لكل ذلك. حتى الأسرار مرفوعة — لكنها مختومة ومشفّرة، فيبقى المستودع مفتوحاً دون أن يتسرّب شيء.",
+  "whoweare_oss_link": "اقرأ أياً منها",
+
+  "whoweare_core_caption": "جوهرها",
+  "whoweare_repo_gateway": "كل طلب يدخل من هنا",
+  "whoweare_repo_auth": "دخول واحد، لكل الخدمات",
+  "whoweare_repo_genderize": "لغة مختلفة، والبوابة نفسها",
+  "whoweare_repo_portal": "هذه الصفحة",
+  "whoweare_repo_infra": "ادمج في main، وينشر نفسه",
+
+  "whoweare_k8s": "كل هذا يعمل على Kubernetes، ولكل تطبيق ملفاته الخاصة — deployment، service، sealed secret — في مستودع واحد يراقبه Argo CD.",
+  "whoweare_k8s_emphasis": "نحن لا ننشر يدوياً.",
+
+  "whoweare_lang_label": "بأي لغة تريد",
+  "whoweare_lang_body": "البوابة لا تطلب سوى HTTP. فـgenderize-service مكتوبة بـPython بين صف من خدمات Java، ولم يلزم تغيير شيء لإدخالها.",
+  "whoweare_auth_label": "نظام دخولنا لك",
+  "whoweare_auth_body": "التحقق من الرموز سياسة على البوابة، لا شيفرة داخل كل خدمة. فتصبح الخدمة الجديدة خلف نظام دخولنا قبل أن يكتب أحد سطراً فيها.",
+  "whoweare_public_label": "نفكّر بصوت مسموع",
+  "whoweare_public_body": "قرارات التصميم خلف كل ما سبق تُكتب وتُنشر أولاً بأول.",
+
+  "whoweare_soon_badge": "لم تُطلق",
+  "whoweare_soon_body": "KAUDevs ستدعم العمل مفتوح المصدر من الطلاب. وBuilders ستحوّل تلك المهارات إلى برمجيات تُطلق فعلاً. وكلتاهما قيد البناء الآن.",
+
+  "whoweare_link_whatsapp": "واتساب",
+
   "section_vision_title": "مجرد البداية",
   "section_vision_subtitle": "منظومتنا تتوسع. خدمات أفضل. ميزات أكثر. إمكانيات أكبر.",
   "section_vision_cta": "انضم إلينا في هذه الرحلة.",
 
   "footer_brand": "KStack",
   "footer_brand_subtitle": "نبني لنمكّن",
-  "footer_tagline": "مبني من الطلاب، للطلاب في جامعة الملك عبدالعزيز",
+  "footer_tagline": "مبني من الطلاب، للطلاب",
   "footer_github": "قت هب",
   "footer_twitter": "إكس ( تويتر )",
-  "footer_copyright": "© 2026 KStack. صُنع بـ ❤ في جدة.",
+  "footer_copyright": "© 2026 KStack. صُنع بـ ❤ في مكة.",
 
   "login_success_title": "تم الدخول بنجاح",
   "login_success_subtitle": "أهلاً بك في KStack، سيتم تحويلك قريباً.",

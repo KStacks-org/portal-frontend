@@ -38,7 +38,7 @@ export function Header() {
                         <ProjectLogo projectId={'kstack'} projectName={'kstack'}/>
 
                         <div className=" hidden md:block font-bold md:text-3xl tracking-tight text-foreground text-2xl ">
-                            K<span className="text-green-600 dark:text-green-400">Stack</span>
+                            K<span className="text-accent">Stack</span>
                         </div>
                     </div>
 

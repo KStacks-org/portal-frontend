@@ -10,7 +10,7 @@
 
   "hero_title_line1": "Your Academic",
   "hero_title_highlight": "Ecosystem",
-  "hero_subtitle": "Access all your student services in one unified platform",
+  "hero_subtitle": "All student projects in one unified platform",
 
   "section_official_title": "Official Stack Services",
   "section_official_subtitle": "Core services built and maintained by the KStack team",
@@ -26,7 +26,7 @@
   "service_kaugroups_desc": "Find Whatsapp groups based on your own schedule with ease",
   "service_kaudevs_name": "Devs",
   "service_kaudevs_tagline": "Developer Resources",
-  "service_kaudevs_desc": "Learn how to build on the stack, access documentation, and learn for free",
+  "service_kaudevs_desc": "Learn how to build, access documentation, and learn for free",
   "service_kausubjects_name": "Subjects",
   "service_kausubjects_tagline": "Subject Explorer",
   "service_kausubjects_desc": "Explore subjects, rate, and review them with the community",
@@ -40,8 +40,8 @@
   "action_open_service": "Open Service",
   "action_launching_soon": "Under Development",
 
-  "section_powered_title": "Powered by KStack",
-  "section_powered_subtitle": "Student projects sponsored and supported by our infrastructure",
+  "section_powered_title": "Hall of Fame",
+  "section_powered_subtitle": "Exceptional Student projects that deserved this place.",
 
   "project_schedly_name": "Schedly",
   "project_schedly_desc": "Generate all possible class schedules and pick the best one, using the raw power of algorithms.",
@@ -101,16 +101,46 @@
   "dev_audience_label": "Instant Audience",
   "dev_audience_desc": "Skip the marketing struggle. Stack your app on our ecosystem and reach thousands of students Immediately.",
 
+  "whoweare_badge": "Who we are",
+  "whoweare_title": "A student team that builds and runs its own infrastructure.",
+  "whoweare_lead": "One portal collects every student service we operate. We wrote what runs under it, we deploy it, and we keep it running.",
+
+  "whoweare_oss_title": "Our projects are completely open source.",
+  "whoweare_oss_body": "Including the gateway, the auth service, and the deployment config for all of it. Even the secrets are committed — sealed, so the repository can stay open without anything leaking.",
+  "whoweare_oss_link": "Read any of it",
+
+  "whoweare_core_caption": "The core of it",
+  "whoweare_repo_gateway": "Every request enters here",
+  "whoweare_repo_auth": "One login, every service",
+  "whoweare_repo_genderize": "A different language, same gateway",
+  "whoweare_repo_portal": "This page",
+  "whoweare_repo_infra": "Merge to main, and it ships itself",
+
+  "whoweare_k8s": "All of it runs on Kubernetes — a deployment, a service and a sealed secret per app, in one repository Argo CD watches.",
+  "whoweare_k8s_emphasis": "Nobody here deploys by hand.",
+
+  "whoweare_lang_label": "Bring any language",
+  "whoweare_lang_body": "The gateway asks for HTTP and nothing else. genderize-service is Python among a row of Java services, and nothing had to change to let it in.",
+  "whoweare_auth_label": "Our auth is yours",
+  "whoweare_auth_body": "Token verification is a policy on the gateway, not code inside each service. A new service is behind our login before anyone writes a line of it.",
+  "whoweare_public_label": "We think out loud",
+  "whoweare_public_body": "The design decisions behind all of the above get written up and posted as we make them. The community is on WhatsApp.",
+
+  "whoweare_soon_badge": "Not launched",
+  "whoweare_soon_body": "KAUDevs will back open source work by students. Builders will turn those skills into software that ships. Both are being built now.",
+
+  "whoweare_link_whatsapp": "WhatsApp",
+
   "section_vision_title": "Just the Beginning",
   "section_vision_subtitle": "Our ecosystem is expanding. More services. More features. More possibilities.",
   "section_vision_cta": "Join us on this journey.",
 
   "footer_brand": "KStack",
   "footer_brand_subtitle": "Student-Powered Innovation",
-  "footer_tagline": "Built by students, for students at King Abdulaziz University",
+  "footer_tagline": "Built by students, for students.",
   "footer_github": "GitHub",
   "footer_twitter": "Twitter",
-  "footer_copyright": "© 2026 KStack. Built with ❤ in Jeddah.",
+  "footer_copyright": "© 2026 KStack. Built with ❤ in Mekkah.",
 
   "login_success_title": "Authentication Successful",
   "login_success_subtitle": "Welcome to KStack. Your session is now active. You will be redirected shortly.",
