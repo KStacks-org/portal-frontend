@@ -129,7 +129,7 @@ function App() {
                         icon: () => <ProjectLogo projectName="kindex" projectId="kindex"/>,
                         status: m.status_live(),
                         statusKey: 'Live',
-                        link: 'https://kauindex.com',
+                        link: 'https://index.kstacks.org',
                         color: 'primary',
                     },
                     {
