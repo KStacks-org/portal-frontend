@@ -112,9 +112,9 @@
   "whoweare_core_caption": "جوهرها",
   "whoweare_repo_gateway": "كل طلب يدخل من هنا",
   "whoweare_repo_auth": "دخول واحد، لكل الخدمات",
-  "whoweare_repo_genderize": "لغة مختلفة، والبوابة نفسها",
+  "whoweare_repo_genderize": "لغة مختلفة، تحت نفس البوابة",
   "whoweare_repo_portal": "هذه الصفحة",
-  "whoweare_repo_infra": "ادمج في main، وينشر نفسه",
+  "whoweare_repo_infra": "ادمج في main، وينشر تلقائياً",
 
   "whoweare_k8s": "كل هذا يعمل على Kubernetes، ولكل تطبيق ملفاته الخاصة — deployment، service، sealed secret — في مستودع واحد يراقبه Argo CD.",
   "whoweare_k8s_emphasis": "نحن لا ننشر يدوياً.",
@@ -129,7 +129,7 @@
   "whoweare_soon_badge": "لم تُطلق",
   "whoweare_soon_body": "KAUDevs ستدعم العمل مفتوح المصدر من الطلاب. وBuilders ستحوّل تلك المهارات إلى برمجيات تُطلق فعلاً. وكلتاهما قيد البناء الآن.",
 
-  "whoweare_link_whatsapp": "واتساب",
+  "whoweare_link_whatsapp": "انضم إلى مجموعة واتساب",
 
   "section_vision_title": "مجرد البداية",
   "section_vision_subtitle": "منظومتنا تتوسع. خدمات أفضل. ميزات أكثر. إمكانيات أكبر.",
@@ -140,7 +140,7 @@
   "footer_tagline": "مبني من الطلاب، للطلاب",
   "footer_github": "قت هب",
   "footer_twitter": "إكس ( تويتر )",
-  "footer_copyright": "© 2026 KStack. صُنع بـ ❤ في مكة.",
+  "footer_copyright": "صُنع بـ ❤ بأيدي طلابية .",
 
   "login_success_title": "تم الدخول بنجاح",
   "login_success_subtitle": "أهلاً بك في KStack، سيتم تحويلك قريباً.",

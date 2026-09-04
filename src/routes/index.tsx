@@ -46,9 +46,10 @@ function WhatsAppMark({ className }: { className?: string }) {
     );
 }
 
-// Set this once the WhatsApp community actually exists. While it is empty the
-// link is not rendered at all, so the page never ships a dead "#" href.
-const WHATSAPP_INVITE_URL: string = ''
+// The community group invite. Kept behind a truthiness check at the call site:
+// if this is ever blanked out the link is not rendered at all, so the page never
+// ships a dead href.
+const WHATSAPP_INVITE_URL: string = 'https://chat.whatsapp.com/EDribsTr4SL48wQw0bw3P6'
 
 export const Route = createFileRoute('/')({ component: App })
 
@@ -361,7 +362,7 @@ function App() {
               </p>
               <ul className="border-t border-border">
                 {[
-                  { repo: 'gateway-service', lang: 'Java', role: m.whoweare_repo_gateway() },
+                  { repo: 'Envoy', lang: 'Proxy', role: m.whoweare_repo_gateway() },
                   { repo: 'auth-service', lang: 'Java', role: m.whoweare_repo_auth() },
                   { repo: 'genderize-service', lang: 'Python', role: m.whoweare_repo_genderize() },
                   { repo: 'portal-frontend', lang: 'TypeScript', role: m.whoweare_repo_portal() },
@@ -402,28 +403,34 @@ function App() {
                     {pt.label}
                   </h3>
                   <p className="text-[0.9375rem] text-muted-foreground leading-relaxed">{pt.body}</p>
+                  {/* Both community links carry button weight, each in its own
+                      brand colour: WhatsApp on the primary green, X on the
+                      foreground token, which is X's black on light and its
+                      white on dark. */}
                   {pt.links && (
-                    <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-3">
-                      <a
-                        href="https://x.com/KStacksOrg"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        <XMark className="w-4 h-4 shrink-0" />
-                        <span>@KStacksOrg</span>
-                      </a>
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-3 mt-4">
                       {WHATSAPP_INVITE_URL && (
                         <a
                           href={WHATSAPP_INVITE_URL}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                          className="group inline-flex items-center gap-2 px-3.5 py-2 rounded-sm border border-primary/40 bg-primary/10 text-sm font-medium text-primary hover:bg-primary/20 hover:border-primary/60 transition-colors"
                         >
                           <WhatsAppMark className="w-4 h-4 shrink-0" />
                           <span>{m.whoweare_link_whatsapp()}</span>
+                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
                         </a>
                       )}
+                      <a
+                        href="https://x.com/KStacksOrg"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group inline-flex items-center gap-2 px-3.5 py-2 rounded-sm border border-foreground/25 bg-foreground/[0.06] text-sm font-medium text-foreground hover:bg-foreground/10 hover:border-foreground/40 transition-colors"
+                      >
+                        <XMark className="w-4 h-4 shrink-0" />
+                        <span>@KStacksOrg</span>
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
+                      </a>
                     </div>
                   )}
                 </div>
@@ -481,11 +488,6 @@ function App() {
                 <div className="text-xs text-muted-foreground">{m.footer_brand_subtitle()}</div>
               </div>
             </div>
-
-            {/* Tagline */}
-            <p className="text-muted-foreground text-center">
-              {m.footer_tagline()}
-            </p>
 
             {/* Social links */}
             <div className="flex items-center gap-6">
