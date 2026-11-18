@@ -51,6 +51,8 @@ function WhatsAppMark({ className }: { className?: string }) {
 // ships a dead href.
 const WHATSAPP_INVITE_URL: string = 'https://chat.whatsapp.com/EDribsTr4SL48wQw0bw3P6'
 
+const APP_DOMAIN = import.meta.env.VITE_APP_DOMAIN || 'kstacks.org'
+
 export const Route = createFileRoute('/')({ component: App })
 
 function App() {
@@ -130,7 +132,7 @@ function App() {
                         icon: () => <ProjectLogo projectName="kindex" projectId="kindex"/>,
                         status: m.status_live(),
                         statusKey: 'Live',
-                        link: 'https://index.kstacks.org',
+                        link: `https://index.${APP_DOMAIN}`,
                         color: 'primary',
                     },
                     {
@@ -140,7 +142,7 @@ function App() {
                         icon: () => <ProjectLogo projectName="kplanner" projectId="kplanner"/>,
                         status: m.status_live(),
                         statusKey: 'Live',
-                        link: 'https://planner.kstacks.org',
+                        link: `https://planner.${APP_DOMAIN}`,
                         color: 'accent',
                     },
                     {
@@ -150,7 +152,7 @@ function App() {
                         icon: () => <ProjectLogo projectName="kgroups" projectId="kgroups"/>,
                         status: m.status_beta(),
                         statusKey: 'Beta',
-                        link: 'https://groups.kstacks.org',
+                        link: `https://groups.${APP_DOMAIN}`,
                         color: 'primary',
                     },
                     {
