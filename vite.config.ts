@@ -15,7 +15,7 @@ const config = defineConfig(({ mode, command }) => {
     const env = loadEnv(mode, process.cwd(), '')
     if (command === 'build' && !env.VITE_API_URL) {
         throw new Error(
-            'VITE_API_URL must be set at build time (Docker build arg / CI variable).',
+            'VITE_API_URL must be set in .env.[mode] or the build environment.',
         )
     }
 
@@ -31,8 +31,8 @@ const config = defineConfig(({ mode, command }) => {
             project: './project.inlang',
             outdir: './src/paraglide',
             strategy: ['cookie', 'preferredLanguage', 'baseLocale'],
-            cookieDomain: mode === 'production' ? 'kstacks.org' : 'localhost',
-            cookieName: 'PARAGLIDE_LOCALE'
+            cookieDomain: command === 'build' ? env.LOCALE_COOKIE_DOMAIN : 'localhost',
+            cookieName: mode === 'dev' ? 'DEV_PARAGLIDE_LOCALE' : 'PARAGLIDE_LOCALE'
         }),
         nitro(),
         // this is the plugin that enables path aliases
